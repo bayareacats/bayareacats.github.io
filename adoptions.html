@@ -3,7 +3,6 @@ layout: default
 title: Adoptions | Bay Area Cats
 ---
 
-<!-- Main -->
 <section id="main" class="wrapper style1">
     <header class="major">
         <h2>Adoptions</h2>
@@ -36,8 +35,17 @@ title: Adoptions | Bay Area Cats
         </div> -->
 
         <br/>
-        <a class="donate-button" href="https://new.shelterluv.com/matchme/adopt/BAH/Cat" style="text-decoration: none;" target="_top">Adoption application</a>
-
+        <a class="donate-button"
+           href="https://new.shelterluv.com/matchme/adopt/BAH/Cat"
+           style="text-decoration: none;"
+           target="_top"
+           onclick="gtag('event', 'adoption_application', {
+              event_category: 'engagement',
+              event_label: 'Adoption Application Button',
+              event_callback: () => { window.location.href=this.href; }
+           }); return false;">
+           Adoption application
+        </a>
 
     </section>
   </div>
@@ -54,46 +62,14 @@ title: Adoptions | Bay Area Cats
 <div>
   <div id="shelterluv_wrap_1751216863"></div>
    <script type="text/javascript" src="https://new.shelterluv.com/misc/shelterluv_embed.js"></script> <script type="text/javascript"> var sourceDomain="https://new.shelterluv.com"; var base_path=""; var GID = 100000138; var filters = {"animalType":"Cat"}; EmbedAvailablePets("shelterluv_wrap_1751216863",GID,filters, 1,sourceDomain,base_path,2); </script>
-  <!-- Petfinder -->
-        <!-- pet-scroller
-            type='["cat"]'
-            age='[]'
-            limit="48"
-            hidebreed
-            status="adoptable"
-            petlisttitle="Bay Area Cats – Adoptable Cats"
-            organization="CA3353"
-            apibase="https://api.petfinder.com"
-            petfinderurl="https://www.petfinder.com"
-            accesstoken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJtd1NmUDQ1SEpPckFSS0RkVGM1M3JGSjNHVTJIdnk0SUxVSGR5Y3NnNGpURzRCVHIzdCIsImp0aSI6IjBaWWlrZnZWNllkWFlDQU5SbjdGaHdwYkZ6RUR3RVZLOWp3ZTRrU3giLCJpYXQiOjE3NTA0ODY3MjEsIm5iZiI6MTc1MDQ4NjcyMSwiZXhwIjo0OTA2MTYwMzIxLCJzdWIiOiIxOTQzODQ3MSIsInNjb3BlcyI6W119.KKODK4ch-xpVgeCzBQBqIp26Cnp3rysQ-HxZC-VmCdvKL9ftsOl-FTfufV5Ef0Wdp8H9MvpPJ8PyCATD4N2fVQdu5xHEEgStceETvmqPbe1AyOZ7jquj2ko7OJ42OjujtELIpoZ1BL29bbCVpYtBUL3gGuSuoSVfu7zu3ku2iKEIzju07crIl6AmAy4eZ9bYxBOw4UowXt-YQLNqet44bXeVfGo6JHLBoNCUDdho9QsImC7_ePfvN0eIF3lXncTiL7I8zadw1owpPa51afHz5jof0af2wQ2q1KeMVOnhX_OaSWhgyaebC6VKvER2-mbOX2ZMWI2p6PXEDjcAZuojVA">
-        </pet-scroller>
-
-        <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js">
-        </script> -->
-    </div>
-<!--         <div id="available-cats">
-            <section>
-                <h3>Available cats</h3>
-                <iframe class="airtable-embed" src="https://airtable.com/embed/appklgrXgkT9hR2Ts/shrj4RQOJSNU6NXho?viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-            </section>
-        </div>
-
-        <hr class="major" />
-
-        <div id="available-kittens">
-            <section>
-                <h3>Available kittens</h3>
-                <iframe class="airtable-embed" src="https://airtable.com/embed/appklgrXgkT9hR2Ts/shrnJTnOMOp8f5MV6?viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-            </section>
-        </div> -->
-    </div>
+  </div>
+</div>
 
 <hr class="major" />
 
 <h3>Adoption fees:</h3>
 <ul>
-  <li><strong>Kittens (under 3 months):</strong> $200 ($300 for a pair)</li>
-  <li><strong>Kittens (3 to 6 months):</strong> $150 ($200 for a pair)</li>
+  <li><strong>Kittens:</strong> $150 ($250 for a pair)</li>
   <li><strong>Adults:</strong> $100</li>
 </ul>
 <p>All cats are spayed/neutered, vaccinated, microchipped, dewormed, and flea-treated.</p>
