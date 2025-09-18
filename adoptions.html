@@ -36,7 +36,22 @@ title: Adoptions | Bay Area Cats
         </div> -->
 
         <br/>
-        <a class="donate-button" href="https://new.shelterluv.com/matchme/adopt/BAH/Cat" style="text-decoration: none;" target="_top">Adoption application</a>
+        <a class="donate-button" id="adoption-button" href="https://new.shelterluv.com/matchme/adopt/BAH/Cat" style="text-decoration: none;" target="_top">Adoption application</a>
+        <script>
+        (function() {
+          const btn = document.getElementById('adoption-button');
+          if (!btn) return;
+        
+          btn.addEventListener('click', function() {
+            if (typeof window.gtag === 'function') {
+              gtag('event', 'adopt_click', {
+                event_category: 'adoption',
+                event_label: 'adoption'
+              });
+            }
+          });
+        })();
+        </script>
 
 
     </section>

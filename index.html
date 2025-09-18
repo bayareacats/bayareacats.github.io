@@ -9,9 +9,25 @@ layout: landing-page
     <div id="donations">
       <form action="https://www.paypal.com/donate" method="post" target="_top">
       <input type="hidden" name="hosted_button_id" value="3CU9XS5BLTLWE" />
-      <button class="donate-button" type="submit">Donate to help save lives</button>
+      <button class="donate-button" id="donate-button-home" type="submit">Donate to help save lives</button>
       <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
 </form>
+<script>
+(function() {
+  const btn = document.getElementById('donate-button-home');
+  if (!btn) return;
+
+  btn.addEventListener('click', function() {
+    if (typeof window.gtag === 'function') {
+      gtag('event', 'donate_click', {
+        event_category: 'donations',
+        event_label: 'homepage'
+      });
+    }
+    // no preventDefault; form opens PayPal in a new tab
+  });
+})();
+</script>
     <p>To decrease the number of unfixed cats in the community. Bay Area Cats is a 501(c)(3) non-profit organization. Our organization provides resources and enables the community to do trap-neuter-return (TNR). We spend time training, educating, rescuing kittens, and assisting with TNR efforts. We help connect people to spay/neuter resources and support those with financial need. Our community cats and kittens could use your help! You can also donate via <a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=85C7UMCXTS2GC">PayPal</a> or <a href="https://venmo.com/code?user_id=3668070472091276232">Venmo</a>, and through our <a href="https://www.chewy.com/g/bay-area-cats_b103747788?utm_medium=email&utm_source=transactional&utm_campaign=SHELTER_BUSINESS_PAGE_APPROVED#wish-list">Chewy</a> or <a href="https://a.co/4CxxGb9">Amazon Wishlist</a>.<p>
 <p>
       If you would like to get involved in trap-neuter-return (TNR) or volunteer at our adoption center, please submit <a href="https://bayareacats.org/volunteer">bayareacats.org/volunteer</a>. Sign up to foster at <a href="https://bayareacats.org/foster">bayareacats.org/foster</a>.</p>
@@ -85,3 +101,4 @@ layout: landing-page
 				
 			
 		
+
