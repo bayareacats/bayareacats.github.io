@@ -2,6 +2,67 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:500,300");
 @import url("https://fonts.googleapis.com/css?family=Quicksand:500,300");
 
+/* Social media icons */
+
+/* Make the 3 footer items behave like a centered row */
+#footer ul.copyright.footer-row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centers the entire group */
+
+  text-align: left;          /* prevents per-item "centered text" look */
+}
+
+/* Optional: keep the center text centered */
+#footer .footer-cta {
+  text-align: center;
+}
+
+/* Social icon list */
+#footer .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#footer .social-icons li {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Icon buttons */
+#footer .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer .social-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  fill: currentColor;
+}
+
+/* Make footer text + links white */
+#footer,
+#footer a {
+  color: #fff;
+}
+
 /* Basic */
 
 	body {
@@ -380,7 +441,7 @@
 		#banner .image.fit {
 			display: block;
 			margin: 0 0 2em 0;
-			width:80%;
+			width:60%;
     	content: url("/images/bayareacats_banner.png");
     	margin:auto;
 		}
