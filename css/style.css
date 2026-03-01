@@ -442,8 +442,8 @@
 			display: block;
 			margin: 0 0 2em 0;
 			width:60%;
-    	content: url("/images/bayareacats_banner.png");
-    	margin:auto;
+			content: url("/images/bayareacats_banner.png");
+			margin:auto;
 		}
 
 
@@ -1048,11 +1048,20 @@
 		padding: 4em 0 6em 0;
 	}
 
+	#footer {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
 		#footer a {
 			color: #fff;
 			text-align: center;
 			vertical-align:middle;
-
+			width:100%
 		}
 
 		#footer a:hover {
