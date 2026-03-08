@@ -70,23 +70,3 @@
 	#main {
 		padding: 2.5em 0 0 0;
 	}
-
-/* Footer */
-
-	#footer {
-		padding: 2em 0;
-	}
-
-		#footer .copyright {
-			text-align: left;
-		}
-
-		#footer .copyright li {
-				vertical-align:middle;
-				text-align: center;
-				list-style: none;
-				border-left: 0;
-				margin-left: 0;
-				padding-left: 0;
-				display: block;
-			}

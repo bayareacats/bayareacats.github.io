@@ -16,6 +16,7 @@
   justify-content: center;   /* centers the entire group */
 
   text-align: left;          /* prevents per-item "centered text" look */
+  flex-wrap: wrap;      /* THIS allows wrapping */
 }
 
 /* Optional: keep the center text centered */
@@ -55,6 +56,17 @@
   height: 22px;
   display: block;
   fill: currentColor;
+}
+
+@media (max-width: 980px) {
+  #footer ul.copyright.footer-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #footer ul.copyright.footer-row > li:not(:last-child)::after {
+    content: none;
+  }
 }
 
 /* Make footer text + links white */
