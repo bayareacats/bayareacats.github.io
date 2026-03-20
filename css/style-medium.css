@@ -60,13 +60,25 @@
 			}
 /* Layers */
 
+	#navButton {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 10001;
+		-webkit-tap-highlight-color: transparent;
+	}
+
 	#navButton .toggle {
+		cursor: pointer;
 		text-decoration: none;
 		height: 100%;
 		left: 0;
 		position: absolute;
 		top: 0;
 		width: 100%;
+		touch-action: manipulation;
+		-webkit-user-select: none;
+		user-select: none;
 	}
 
 		#navButton .toggle:before {
@@ -97,6 +109,7 @@
 	#navPanel {
 		background: #192024;
 		color: #c5c7c8;
+		z-index: 10002;
 	}
 
 		#navPanel nav {
