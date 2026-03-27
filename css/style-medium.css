@@ -30,10 +30,48 @@
 		display: none;
 	}
 
+		.mobile-tabs {
+			display: flex;
+			gap: 0;
+			justify-content: space-between;
+			overflow-x: auto;
+			padding: 0;
+			background: #285AA8;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+		}
+
+	.mobile-tabs::-webkit-scrollbar {
+		display: none;
+	}
+
+		.mobile-tabs a {
+			flex: 1 0 auto;
+			padding: 1rem 0.75rem;
+			background: transparent;
+			color: #ffffff;
+			font-family: "Quicksand", sans-serif;
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 1;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		.mobile-tabs a.active {
+			background: transparent;
+			color: #ffffff;
+		}
+
 /* Banner */
 
 	#banner {
-		padding: 1em 0;
+		padding: 1em 0 0 0;
+	}
+
+	#banner + .mobile-tabs {
+		margin-top: 0;
 	}
 
 		#banner .button {
@@ -59,6 +97,11 @@
 				display: block;
 			}
 /* Layers */
+
+	#navButton,
+	#navPanel {
+		display: none !important;
+	}
 
 	#navButton {
 		position: fixed;
