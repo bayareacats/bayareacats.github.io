@@ -429,6 +429,110 @@
 		color: #000000;
 	}
 
+.moms-last-litter-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 0 0 3rem 0;
+}
+
+.moms-last-litter-content {
+  flex: 1 1 42rem;
+}
+
+.moms-last-litter-content > p {
+  margin-bottom: 1rem;
+}
+
+.moms-last-litter-content ul {
+  margin-bottom: 0;
+}
+
+.moms-last-litter-layout p,
+.moms-last-litter-layout li {
+  color: #000000;
+}
+
+.moms-last-litter-quote {
+  margin: 1rem 0 0 0;
+  color: #285AA8 !important;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.moms-last-litter-quotes {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.moms-last-litter-quote-viewport {
+  display: flex;
+  align-items: center;
+  min-height: 4.5rem;
+}
+
+.moms-last-litter-quote-track {
+  position: relative;
+  text-align: center;
+}
+
+.moms-last-litter-quote {
+  display: none;
+  margin: 0;
+}
+
+.moms-last-litter-quote.is-active {
+  display: block;
+}
+
+.moms-last-litter-quote-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: #e1effc;
+  color: #285AA8;
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.moms-last-litter-quote-dots {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.moms-last-litter-quote-dots button {
+  width: 0.65rem;
+  height: 0.65rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(40, 90, 168, 0.25);
+  cursor: pointer;
+}
+
+.moms-last-litter-quote-dots button.is-active {
+  background: #285AA8;
+}
+
+.moms-last-litter-side {
+  flex: 0 1 30rem;
+}
+
+.moms-last-litter-side .home-link-card .home-link-card-image img {
+  height: 240px;
+}
+
 .petco-map-embed {
   position: relative;
   width: 100%;
@@ -1460,6 +1564,16 @@ html {
 }
 
 @media (max-width: 980px) {
+  .moms-last-litter-layout {
+    flex-direction: column;
+  }
+
+  .moms-last-litter-side {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 32rem;
+  }
+
   .home-link-card .home-link-card-image img {
     height: 300px;
   }
@@ -1493,6 +1607,14 @@ html {
 }
 
 @media (max-width: 640px) {
+  .moms-last-litter-layout {
+    gap: 0.75rem;
+  }
+
+  .moms-last-litter-content > p {
+    margin-bottom: 0.75rem;
+  }
+
   .home-link-card .home-link-card-image img {
     height: 260px;
   }
