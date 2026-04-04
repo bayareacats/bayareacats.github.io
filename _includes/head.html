@@ -25,6 +25,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
     <meta name="keywords" content="{{ page.keywords | default: site.keywords }}" />
+    {% assign site_url = site.url %}
+    {% unless site_url contains '://' %}
+      {% assign site_url = 'https://' | append: site_url %}
+    {% endunless %}
+    {% assign page_path = page.url | default: '/' %}
+    {% assign canonical_url = site_url | append: page_path %}
+    {% assign share_title = page.share_title | default: page.title | default: site.title %}
+    {% assign share_description = page.share_description | default: page.description | default: site.description %}
+    {% assign share_image = page.share_image | default: site.share_image %}
+    {% if share_image %}
+      {% unless share_image contains '://' %}
+        {% assign share_image_first_char = share_image | slice: 0, 1 %}
+        {% unless share_image_first_char == '/' %}
+          {% assign share_image = share_image | prepend: '/' %}
+        {% endunless %}
+        {% assign share_image = site_url | append: share_image %}
+      {% endunless %}
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:title" content="{{ share_title }}" />
+    <meta property="og:description" content="{{ share_description }}" />
+    <meta property="og:url" content="{{ canonical_url }}" />
+    <meta name="twitter:card" content="{% if share_image %}summary_large_image{% else %}summary{% endif %}" />
+    <meta name="twitter:title" content="{{ share_title }}" />
+    <meta name="twitter:description" content="{{ share_description }}" />
+    {% if share_image %}
+    <meta property="og:image" content="{{ share_image }}" />
+    <meta name="twitter:image" content="{{ share_image }}" />
+    {% endif %}
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/js/skel.min.js"></script>

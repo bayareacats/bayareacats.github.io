@@ -6,7 +6,8 @@ description: > # this means to ignore newlines until "baseurl:"
   and community cats for trap-neuter-return (TNR). Includes instructions on how and where to get traps in
   the Santa Clara County in California.
 baseurl: ""
-url: "bayareacats.github.io"
+url: "bayareacats.org"
+share_image: "/images/bayareacats_banner.png"
 
 # Build settings
 markdown: kramdown
