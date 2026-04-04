@@ -30,6 +30,10 @@
       {% assign site_url = 'https://' | append: site_url %}
     {% endunless %}
     {% assign page_path = page.url | default: '/' %}
+    {% assign page_path = page_path | replace: '/index.html', '/' %}
+    {% if page_path != '/' %}
+      {% assign page_path = page_path | replace: '.html', '' %}
+    {% endif %}
     {% assign canonical_url = site_url | append: page_path %}
     {% assign share_title = page.share_title | default: page.title | default: site.title %}
     {% assign share_description = page.share_description | default: page.description | default: site.description %}
