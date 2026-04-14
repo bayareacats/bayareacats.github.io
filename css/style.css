@@ -1652,6 +1652,27 @@ html {
   padding: 1rem 0;
   align-items: start;
 }
+.donate-impact{
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
+  column-gap: 3rem;
+  align-items: start;
+}
+.donate-impact-copy{
+  max-width: none;
+}
+.bac-stats-donate{
+  grid-template-columns: 1fr;
+  justify-self: start;
+  padding-top: 0;
+}
+.bac-stats-donate .bac-stat{
+  width: fit-content;
+  margin-left: 4rem;
+}
+.bac-stats-donate .bac-label{
+  align-items: center;
+}
 .bac-stat{
   text-align:center;
 }
@@ -1678,6 +1699,16 @@ html {
 }
 @media (max-width: 780px){
   .bac-stats{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .donate-impact{
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+  .donate-impact-copy{
+    max-width: none;
+  }
+  .bac-stats-donate{
+    justify-self: start;
+  }
 }
 @media (max-width: 480px){
   .bac-stats{ grid-template-columns: 1fr; gap: 1.75rem; }

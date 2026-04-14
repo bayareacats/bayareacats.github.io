@@ -38,6 +38,9 @@
     {% assign share_title = page.share_title | default: page.title | default: site.title %}
     {% assign share_description = page.share_description | default: page.description | default: site.description %}
     {% assign share_image = page.share_image | default: site.share_image %}
+    {% assign share_image_type = page.share_image_type | default: site.share_image_type %}
+    {% assign share_image_width = page.share_image_width | default: site.share_image_width %}
+    {% assign share_image_height = page.share_image_height | default: site.share_image_height %}
     {% if share_image %}
       {% unless share_image contains '://' %}
         {% assign share_image_first_char = share_image | slice: 0, 1 %}
@@ -58,6 +61,10 @@
     <meta name="twitter:description" content="{{ share_description }}" />
     {% if share_image %}
     <meta property="og:image" content="{{ share_image }}" />
+    <meta property="og:image:secure_url" content="{{ share_image }}" />
+    {% if share_image_type %}<meta property="og:image:type" content="{{ share_image_type }}" />{% endif %}
+    {% if share_image_width %}<meta property="og:image:width" content="{{ share_image_width }}" />{% endif %}
+    {% if share_image_height %}<meta property="og:image:height" content="{{ share_image_height }}" />{% endif %}
     <meta name="twitter:image" content="{{ share_image }}" />
     {% endif %}
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
