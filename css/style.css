@@ -1470,6 +1470,12 @@ html {
   display: none;
 }
 
+@media screen and (min-width: 981px) {
+  .mobile-tabs {
+    display: none !important;
+  }
+}
+
 .home-highlight-banner {
   display: flex;
   align-items: center;
