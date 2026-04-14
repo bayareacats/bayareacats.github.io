@@ -1,0 +1,7 @@
+<nav class="mobile-tabs" aria-label="Mobile navigation">
+    <a class="{% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+    <a class="{% if page.url == '/trapping' %}active{% endif %}" href="{{ site.baseurl }}/trapping">Trapping</a>
+    <a class="{% if page.url == '/adoptions' %}active{% endif %}" href="{{ site.baseurl }}/adoptions">Adoptions</a>
+    <a class="{% if page.url == '/donate' %}active{% endif %}" href="{{ site.baseurl }}/donate">Donate</a>
+    <a class="{% if page.url == '/contact' %}active{% endif %}" href="{{ site.baseurl }}/contact">Contact</a>
+</nav>
