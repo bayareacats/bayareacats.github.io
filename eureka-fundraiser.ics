@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Bay Area Cats//Eureka Fundraiser//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20260517T180000Z
+DTEND:20260518T060000Z
+SUMMARY:Dine for a Purr-pose — Bay Area Cats at Eureka! Cupertino
+DESCRIPTION:Enjoy a meal at Eureka! Cupertino and mention "Bay Area Cats" to your server — 15% of your bill will be donated to rescuing\, fostering\, and spay/neuter for cats.\n\nLearn more at bayareacats.org
+LOCATION:19369 Stevens Creek Blvd STE 130\, Cupertino\, CA 95014
+URL:https://bayareacats.org
+END:VEVENT
+END:VCALENDAR

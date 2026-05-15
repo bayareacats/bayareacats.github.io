@@ -1,0 +1,13 @@
+<div id="event-banner" style="display:none;">
+  <span><strong>This Sunday, May 17</strong> &mdash; Dine at <a class="event-banner-venue" href="https://maps.app.goo.gl/YTB5ZrdgG5PxNx92A" target="_blank" rel="noopener">Eureka! Cupertino</a> (11am&ndash;11pm) and 15% of your bill supports Bay Area Cats! <a class="event-banner-cal" href="/eureka-fundraiser.ics">Add to Calendar</a></span>
+</div>
+<script>
+(function () {
+  var DEADLINE = new Date('2026-05-18T04:00:00Z'); // 9pm PDT May 17
+  document.addEventListener('DOMContentLoaded', function () {
+    var banner = document.getElementById('event-banner');
+    if (!banner || new Date() >= DEADLINE) return;
+    banner.style.display = '';
+  });
+})();
+</script>
