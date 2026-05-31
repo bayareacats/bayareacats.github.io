@@ -22,6 +22,8 @@ jobs:
         env:
           SHELTERLUV_API_KEY: ${{ secrets.SHELTERLUV_API_KEY }}
           SHELTERLUV_ADOPTION_COUNT_OFFSET: ${{ vars.SHELTERLUV_ADOPTION_COUNT_OFFSET }}
+          SHELTERLUV_API_ANIMALS_PATH: ${{ vars.SHELTERLUV_API_ANIMALS_PATH }}
+          SHELTERLUV_API_QUERY: ${{ vars.SHELTERLUV_API_QUERY }}
         run: node scripts/update-adoption-count.mjs
 
       - name: Commit count update

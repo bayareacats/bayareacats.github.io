@@ -17,6 +17,8 @@ Optional settings:
 - `SHELTERLUV_SPECIES`: defaults to `Cat`.
 - `SHELTERLUV_API_KEY_HEADER`: defaults to `X-API-Key`.
 - `SHELTERLUV_API_KEY_QUERY_PARAM`: use only if Shelterluv tells you the key belongs in a query string.
+- `SHELTERLUV_API_ANIMALS_PATH`: defaults to `animals`.
+- `SHELTERLUV_API_QUERY`: extra query string to add to every Shelterluv request, such as `status=Adopted`.
 - `SHELTERLUV_FIXTURE`: path to a local JSON response for testing without calling the API.
 
 Do not put the Shelterluv API key in browser JavaScript or commit it to this repo.
