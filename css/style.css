@@ -1510,6 +1510,35 @@
   background-color: #1f4b91;
 }
 
+.adoption-special-banner {
+  margin: 1.5rem 0 2rem;
+  padding: 1.35rem 1.5rem;
+  border-left: 6px solid #0097A7;
+  background: #f0fbfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(40, 90, 168, 0.08);
+}
+
+.adoption-special-banner h3 {
+  margin: 0 0 0.45rem;
+  color: #285AA8;
+}
+
+.adoption-special-banner p {
+  margin: 0;
+}
+
+.adoption-special-kicker {
+  color: #0097A7;
+  font-family: "Open Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 0.35rem !important;
+  text-transform: uppercase;
+}
+
 .give-a-cat-box-logo {
   display: block;
   max-width: 600px;
