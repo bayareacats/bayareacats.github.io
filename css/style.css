@@ -1511,12 +1511,20 @@
 }
 
 .adoption-special-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
   margin: 1.5rem 0 2rem;
   padding: 1.35rem 1.5rem;
   border-left: 6px solid #0097A7;
   background: #f0fbfc;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(40, 90, 168, 0.08);
+}
+
+.adoption-special-copy {
+  flex: 1 1 auto;
 }
 
 .adoption-special-banner h3 {
@@ -1537,6 +1545,12 @@
   line-height: 1.2;
   margin-bottom: 0.35rem !important;
   text-transform: uppercase;
+}
+
+.adoption-special-logo {
+  flex: 0 0 230px;
+  max-width: 230px;
+  width: 35%;
 }
 
 .give-a-cat-box-logo {
@@ -1731,6 +1745,17 @@ html {
   .home-highlight-actions .button {
     width: 100%;
     min-width: 0;
+  }
+
+  .adoption-special-banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .adoption-special-logo {
+    flex: 0 0 auto;
+    max-width: 220px;
+    width: 70%;
   }
 }
 
