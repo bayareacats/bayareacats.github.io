@@ -1,18 +1,27 @@
 ---
 layout: landing-page
 ---
+{% assign givebutter_campaign = site.givebutter_campaign_code | default: 'gMYxJ0' %}
+{% assign givebutter_url = 'https://givebutter.com/' | append: givebutter_campaign %}
 
 <section id="main" class="wrapper style1">
   <div class="container">
 <!-- <h4><i>2530 outdoor cats and 550 pets helped since 2023</i></h4>
 <hr class="major" /> -->
     <h3>Support our mission: to decrease the number of unfixed cats in the community</h3>
-    <div id="donations">
-      <form action="https://www.paypal.com/donate" method="post" target="_top">
-      <input type="hidden" name="hosted_button_id" value="3CU9XS5BLTLWE" />
-      <button class="donate-button" id="donate-button-home" type="submit">Donate to help save lives</button>
-      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-    </form>
+    <div id="donations" class="home-donation-intro">
+      <div class="givebutter-button-wrap">
+        <givebutter-button
+          id="donate-button-home"
+          campaign="{{ givebutter_campaign }}"
+          label="Donate to help save lives"
+          background-color="#285AA8"
+          border-radius="50"
+          drop-shadow="true"
+          icon="heart"
+        ></givebutter-button>
+        <a class="donate-button givebutter-fallback" id="donate-button-home-fallback" href="{{ givebutter_url }}" target="_blank" rel="noopener">Donate to help save lives</a>
+      </div>
     <script>
     (function() {
       const btn = document.getElementById('donate-button-home');
@@ -25,7 +34,6 @@ layout: landing-page
             event_label: 'homepage'
           });
         }
-        // no preventDefault; form opens PayPal in a new tab
       });
     })();
     </script>
@@ -113,6 +121,71 @@ layout: landing-page
     <hr class="major" />
 
       <h3>Our impact</h3>
+      {% assign has_impact_stats = false %}
+      {% for metric in site.data.impact_stats.metrics %}
+        {% if metric.value != nil %}
+          {% assign has_impact_stats = true %}
+        {% endif %}
+      {% endfor %}
+      {% if has_impact_stats %}
+      <section class="impact-snapshot" aria-label="Impact snapshot">
+        <div class="bac-stats impact-stats">
+          {% for metric in site.data.impact_stats.metrics %}
+            {% if metric.value != nil %}
+            <div class="bac-stat">
+              <div class="bac-num">{{ metric.value }}</div>
+              <div class="bac-label">{{ metric.label }}</div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if site.data.impact_stats.generatedAt %}
+        <p class="impact-updated">Updated from Airtable on {{ site.data.impact_stats.generatedAt | date: "%B %-d, %Y" }}.</p>
+        {% endif %}
+      </section>
+      {% endif %}
+      {% assign yearly_chart = site.data.impact_stats.charts.yearlyCatTypes %}
+      {% if yearly_chart.years.size > 0 %}
+      <section class="impact-chart-shell" aria-labelledby="all-time-impact-title">
+        <h2 id="all-time-impact-title">All-Time Impact</h2>
+        <div class="impact-chart-card">
+          <h3>{{ yearly_chart.title }}</h3>
+          <div class="impact-chart-body">
+            <div class="impact-y-axis" aria-hidden="true">
+              {% for tick in yearly_chart.yAxis %}
+              <span>{{ tick.label }}</span>
+              {% endfor %}
+            </div>
+            <div class="impact-plot">
+              <div class="impact-grid" aria-hidden="true">
+                {% for tick in yearly_chart.yAxis %}
+                <span></span>
+                {% endfor %}
+              </div>
+              <div class="impact-bars" style="grid-template-columns: repeat({{ yearly_chart.years.size }}, minmax(5.5rem, 1fr))">
+                {% for year in yearly_chart.years %}
+                <div class="impact-year">
+                  <div class="impact-total-label" style="bottom: calc({{ year.height }}% + 0.35rem)">{{ year.label }}</div>
+                  <div class="impact-bar" aria-label="{{ year.year }}: {{ year.total }} cats assisted">
+                    <span class="impact-segment impact-segment-pet" style="height: {{ year.segments.pet_spay_neuter.height }}%"></span>
+                    <span class="impact-segment impact-segment-rescued" style="height: {{ year.segments.rescued.height }}%"></span>
+                    <span class="impact-segment impact-segment-tnr" style="height: {{ year.segments.tnr.height }}%"></span>
+                  </div>
+                  <div class="impact-year-label">{{ year.year }}</div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="impact-legend" aria-label="Cat type legend">
+              <h4>Cat Type</h4>
+              <div><span class="impact-dot impact-dot-pet"></span>Pet Spay / Neuter</div>
+              <div><span class="impact-dot impact-dot-rescued"></span>Rescued</div>
+              <div><span class="impact-dot impact-dot-tnr"></span>Trap-Neuter-Return</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endif %}
 	<iframe class="airtable-embed" src="https://airtable.com/embed/appklgrXgkT9hR2Ts/shr4RCpUUqQAJ2wlL" frameborder="0" onmousewheel="" width="100%" height="950" style="background: transparent; border: 1px solid #ccc;"></iframe>
 
 
@@ -140,14 +213,6 @@ layout: landing-page
       <p></p>
     
     </div>
-
-		<!-- <hr class="major" /> -->
-
-		<!-- <h3>Donations</h3>
-		<div id="donations">
-  	<p>Our community cats and kittens could use your help. If you would like to get involved in trap-neuter-return (TNR) or fostering cats or kittens, please reach out. Donations of trap bait (wet or dry cat food or tuna), puppy pee pads, or other cat supplies are gladly accepted. You can also donate via <a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=85C7UMCXTS2GC">PayPal</a> or <a href="https://venmo.com/code?user_id=3668070472091276232">Venmo</a>, and through our <a href="https://www.chewy.com/g/bay-area-cats_b103747788?utm_medium=email&utm_source=transactional&utm_campaign=SHELTER_BUSINESS_PAGE_APPROVED#wish-list">Chewy</a> or <a href="https://a.co/4CxxGb9">Amazon Wishlist</a>. Contact us at <a href="mailto:info@bayareacats.org">info@bayareacats.org</a> with any questions or if you want to get involved. Bay Area Cats is a 501(c)(3) non-profit organization.
-  	</p>
-  	</div> -->
 	</div>
 </section>
 

@@ -1,0 +1,76 @@
+{
+  "generatedAt": null,
+  "pageName": "All Time--All Cities",
+  "metrics": [
+    {
+      "key": "cats_assisted",
+      "label": "Cats Assisted",
+      "value": null,
+      "source": {
+        "baseId": "appklgrXgkT9hR2Ts",
+        "interfaceId": "pbd0Wf6B070Uofn2i",
+        "pageId": "pag1nZ5rVYwBnnREh",
+        "elementId": "pelB0XCL1Qwy4nIk0",
+        "tableId": "tblQ2W7X4SLNfERIP"
+      }
+    },
+    {
+      "key": "tnr_cats",
+      "label": "TNR Cats",
+      "value": null,
+      "source": {
+        "baseId": "appklgrXgkT9hR2Ts",
+        "interfaceId": "pbd0Wf6B070Uofn2i",
+        "pageId": "pag1nZ5rVYwBnnREh",
+        "elementId": "pelLeWFgA83UBpBCJ",
+        "tableId": "tblQ2W7X4SLNfERIP"
+      }
+    },
+    {
+      "key": "rescued",
+      "label": "Cats / Kittens Rescued",
+      "value": null,
+      "source": {
+        "baseId": "appklgrXgkT9hR2Ts",
+        "interfaceId": "pbd0Wf6B070Uofn2i",
+        "pageId": "pag1nZ5rVYwBnnREh",
+        "elementId": "pelbTGtKAw3rW80tj",
+        "tableId": "tblQ2W7X4SLNfERIP"
+      }
+    },
+    {
+      "key": "pets_fixed",
+      "label": "Pets Fixed",
+      "value": null,
+      "source": {
+        "baseId": "appklgrXgkT9hR2Ts",
+        "interfaceId": "pbd0Wf6B070Uofn2i",
+        "pageId": "pag1nZ5rVYwBnnREh",
+        "elementId": "peltGhHs2iXpHCzid",
+        "tableId": "tblQ2W7X4SLNfERIP"
+      }
+    }
+  ],
+  "charts": {
+    "yearlyCatTypes": {
+      "title": "Cats Assisted Per Year",
+      "maxValue": 0,
+      "yAxis": [],
+      "series": [
+        {
+          "key": "tnr",
+          "label": "Trap-Neuter-Return"
+        },
+        {
+          "key": "rescued",
+          "label": "Rescued"
+        },
+        {
+          "key": "pet_spay_neuter",
+          "label": "Pet Spay / Neuter"
+        }
+      ],
+      "years": []
+    }
+  }
+}
