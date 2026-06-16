@@ -1,4 +1,6 @@
 <!-- Footer -->
+{% assign givebutter_campaign = site.givebutter_campaign_code | default: 'gMYxJ0' %}
+{% assign givebutter_url = 'https://givebutter.com/' | append: givebutter_campaign %}
 <footer id="footer">
 
   <ul class="copyright footer-row">
@@ -26,7 +28,15 @@
     <li class="footer-cta">
       <b>Want to help?</b> Donate
       <a target="_blank" rel="noopener" href="https://www.chewy.com/g/bay-area-cats_b103747788?utm_medium=email&utm_source=transactional&utm_campaign=SHELTER_BUSINESS_PAGE_APPROVED#wish-list">supplies</a>
-      or via <a target="_blank" rel="noopener" href="https://www.paypal.com/donate/?hosted_button_id=85C7UMCXTS2GC">PayPal</a>.
+      or
+      <givebutter-button
+        campaign="{{ givebutter_campaign }}"
+        label="give now"
+        background-color="#285AA8"
+        border-radius="40"
+        drop-shadow="false"
+        icon="heart"
+      ></givebutter-button><a class="givebutter-fallback" target="_blank" rel="noopener" href="{{ givebutter_url }}">give now</a>.
     </li>
 
     <li class="footer-email">

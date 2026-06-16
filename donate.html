@@ -2,35 +2,37 @@
 layout: default
 title: Donate | Bay Area Cats
 ---
+{% assign givebutter_campaign = site.givebutter_campaign_code | default: 'gMYxJ0' %}
+{% assign givebutter_url = 'https://givebutter.com/' | append: givebutter_campaign %}
 
-<section id="main" class="wrapper style1">
-    <header class="major">
-        <h2>Donate</h2>
-    </header>
-
+<section id="main" class="wrapper style1 donate-page">
     <div class="container">
 
         <div>
             <section>
-                <h3>Donations</h3>
-                <form action="https://www.paypal.com/donate" method="post" target="_top">
-                <input type="hidden" name="hosted_button_id" value="3CU9XS5BLTLWE" />
-                <button class="donate-button" type="submit">Donate to help save lives</button>
-                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                <br/><br/>
-                <ul>
-                    <li>We accept donations through <a href="https://www.paypal.com/donate/?hosted_button_id=85C7UMCXTS2GC">PayPal</a> or <a href="https://venmo.com/code?user_id=3668070472091276232">Venmo</a>.</li>
-                    <li>We also accept Zelle through <a target="_blank" href="mailto:info@bayareacats.org">info@bayareacats.org</a>.</li>
-                    <li>We have a <a href="https://www.chewy.com/g/bay-area-cats_b103747788?utm_medium=email&utm_source=transactional&utm_campaign=SHELTER_BUSINESS_PAGE_APPROVED#wish-list">Chewy Wishlist</a> and an <a href="https://a.co/4CxxGb9">Amazon Wishlist</a> for the current items we need.</li>
-                    <li>We are registered on Benevity, and many employers offer gift matching programs for supporting charities – check with your employer.</li>
-                </ul>
-                </form>
+                <section class="donate-hero">
+                    <div class="donate-hero-copy">
+                        <p class="donate-kicker">Every gift saves lives</p>
+                        <h2>Fix one cat.<br/>Change a whole colony.</h2>
+                        <p>Bay Area Cats is a volunteer-run, data-driven nonprofit dedicated to reducing cat overpopulation through prevention, rescue, and adoption. Your donation directly funds spay/neuter surgeries, veterinary care, and foster support for cats and kittens across Silicon Valley.</p>
+                        <div class="donate-hero-stat">
+                            <span class="donate-hero-number">2,143</span>
+                            <span class="donate-hero-label"><strong>cats assisted in 2026</strong> and counting, thanks to donors like you</span>
+                        </div>
+                    </div>
+                    <div class="donate-hero-widget">
+                        <div class="donate-widget-shell">
+                            <givebutter-widget id="{{ site.givebutter_widget_id }}"></givebutter-widget>
+                        </div>
+                    </div>
+                </section>
 
             <hr class="major" />
-            <section class="donate-impact">
+            <section class="donate-impact donate-proof">
                 <div class="donate-impact-copy">
-                    <h3>Our Impact</h3>
-                    <p>Bay Area Cats is a high impact, data-driven, volunteer-run organization. We rely on donations from people like you to continue this lifesaving work.</p>
+                    <p class="donate-kicker">Our impact</p>
+                    <h3>Proof your dollars work</h3>
+                    <p>We track every cat. Since 2022 we've helped thousands across Cupertino, Sunnyvale, and San Jose. And we publish the numbers.</p>
                 </div>
 
                 <div class="bac-stats bac-stats-donate">
@@ -42,24 +44,52 @@ title: Donate | Bay Area Cats
                         </div>
                     </div>
                 </div>
-            </section><br/>
+            </section>
 
-                 <!-- <h3>Wishlists</h3>
-                <p>We have a <a href="https://www.chewy.com/g/bay-area-cats_b103747788?utm_medium=email&utm_source=transactional&utm_campaign=SHELTER_BUSINESS_PAGE_APPROVED#wish-list">Chewy Wishlist</a> and an <a href="https://a.co/4CxxGb9">Amazon Wishlist</a> for the current items we need.</p>
+            <hr class="major" />
 
-                <!-- <iframe class="airtable-embed" src="https://airtable.com/embed/appklgrXgkT9hR2Ts/shrQJs6zs4BjZ2jad" frameborder="0" onmousewheel="" width="100%" height="1750" style="background: transparent; border: 1px solid #ccc;"></iframe><br/><br/> -->
                 <iframe class="airtable-embed" src="https://airtable.com/embed/appklgrXgkT9hR2Ts/shr4RCpUUqQAJ2wlL" frameborder="0" onmousewheel="" width="100%" height="950" style="background: transparent; border: 1px solid #ccc;"></iframe><br/><br/>
 
                 <hr class="major" />
-                 <h3>Other Ways to Help</h3>
-                <p>The cats in our care need comfort, safety, and enrichment while they wait for their forever homes. You can help <strong>Give a Cat a Box through <a href="https://www.giveacatabox.com/partners/bay-area-cats" target="_blank">Hide &amp; Scratch</a></strong> – Donate scratcher boxes and toys to cats in our care. Everything is specially priced for rescues and improves the lives of cats in our care.</p>
-                <a href="https://www.giveacatabox.com/partners/bay-area-cats" target="_blank">
-                    <img class="give-a-cat-box-logo" src="/images/give-a-cat-a-box-logo.png" alt="Give a Cat a Box by Hide & Scratch">
-                </a>
+                <section class="donate-options">
+                    <p class="donate-kicker">Other ways to help</p>
+                    <h3>More ways to make a difference</h3>
+                    <p class="donate-options-intro">Beyond a cash gift, here are four meaningful ways to support the cats in our care.</p>
+                    <div class="donate-option-grid">
+                        <article class="donate-option-card">
+                            <div class="donate-option-icon" aria-hidden="true">📦</div>
+                            <h4>Give a Cat a Box</h4>
+                            <p>Donate scratcher boxes and toys through <strong>Hide &amp; Scratch</strong> – specially priced for rescues to keep cats comfortable while they wait for homes.</p>
+                            <a href="https://www.giveacatabox.com/partners/bay-area-cats" target="_blank" rel="noopener">Shop Hide &amp; Scratch <span aria-hidden="true">→</span></a>
+                        </article>
+                        <article class="donate-option-card">
+                            <div class="donate-option-icon" aria-hidden="true">🛒</div>
+                            <h4>Shop our wishlists</h4>
+                            <p>Send the food, litter, and medical supplies we need right now, shipped straight to us from our online wishlists.</p>
+                            <div class="donate-option-links">
+                                <a href="https://www.chewy.com/g/bay-area-cats_b103747788?utm_medium=email&utm_source=transactional&utm_campaign=SHELTER_BUSINESS_PAGE_APPROVED#wish-list" target="_blank" rel="noopener">Chewy <span aria-hidden="true">→</span></a>
+                                <a href="https://a.co/4CxxGb9" target="_blank" rel="noopener">Amazon <span aria-hidden="true">→</span></a>
+                            </div>
+                        </article>
+                        <article class="donate-option-card">
+                            <div class="donate-option-icon" aria-hidden="true">🏢</div>
+                            <h4>Employer matching</h4>
+                            <p>We're registered on <strong>Benevity</strong>, and many employers match charitable gifts – doubling your impact at no extra cost to you.</p>
+                            <a href="https://benevity.com/" target="_blank" rel="noopener">How matching works <span aria-hidden="true">→</span></a>
+                        </article>
+                        <article class="donate-option-card">
+                            <div class="donate-option-icon" aria-hidden="true">📈</div>
+                            <h4>Donate stock</h4>
+                            <p>Give appreciated stock through <strong>DonateStock</strong> – a tax-smart way to give that may help you avoid capital gains while doing more for cats.</p>
+                            <a href="https://donatestock.com/" target="_blank" rel="noopener">Donate stock <span aria-hidden="true">→</span></a>
+                        </article>
+                    </div>
+                </section>
 
                 <hr class="major" />
 
-                 <h3>Supporters</h3>
+                 <p class="donate-kicker">Supporters</p>
+                    <h3>In good company</h3>
                 <div style="display: flex; gap: 10px; align-items: center; margin-top: 20px; flex-wrap: wrap;">
                 <a href="https://missionmeow.org/" target="_blank">
                     <img src="/images/mission-meow.png" alt="Mission Meow"

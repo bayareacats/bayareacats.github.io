@@ -1526,6 +1526,16 @@
   margin: 1.1rem 0 1.4rem;
 }
 
+.home-widget-shell {
+  max-width: 420px;
+  margin: 1.1rem 0 1.4rem;
+}
+
+.home-widget-shell givebutter-widget {
+  display: block;
+  min-height: 188px;
+}
+
 .home-donation-intro givebutter-button,
 .footer-cta givebutter-button {
   display: inline-block;
@@ -1564,8 +1574,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
   gap: 3.25rem;
   align-items: start;
-  margin: 0 auto 4.5rem;
-  max-width: 980px;
+  margin: 0 0 4.5rem;
   padding-top: 3rem;
 }
 
@@ -1645,28 +1654,6 @@
 .donate-widget-shell givebutter-widget {
   display: block;
   min-height: 380px;
-}
-
-.donate-widget-fallback {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 380px;
-  padding: 1rem;
-}
-
-.donate-widget-fallback h3 {
-  margin-bottom: 0.85rem;
-  color: #285AA8;
-  font-size: 1.7rem;
-  line-height: 1.2;
-  text-transform: none;
-}
-
-.donate-widget-fallback p {
-  margin-bottom: 1.35rem;
-  color: #40566b;
-  line-height: 1.65;
 }
 
 .donate-giving-card {
@@ -1817,8 +1804,7 @@
 }
 
 .donate-proof {
-  max-width: 980px;
-  margin: 0 auto 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .donate-proof h3 {
@@ -1833,8 +1819,7 @@
 }
 
 .donate-impact-panel {
-  max-width: 980px;
-  margin: 0 auto 2.75rem;
+  margin: 0 0 2.75rem;
   padding: 1.35rem;
   background: #ffffff;
   border: 1px solid #dce8f1;
@@ -1911,12 +1896,8 @@
 }
 
 .donate-options {
-  position: relative;
-  left: 50%;
-  width: min(1240px, calc(100vw - 3.5rem));
-  max-width: 1240px;
+  max-width: none;
   margin: 0 0 3.25rem;
-  transform: translateX(-50%);
   text-align: left;
 }
 
@@ -2307,13 +2288,6 @@ html {
     grid-template-columns: 1fr;
   }
 
-  .donate-options {
-    left: auto;
-    width: auto;
-    margin: 0 auto 3rem;
-    transform: none;
-  }
-
   .donate-option-card {
     min-height: 0;
     padding: 1.6rem;
@@ -2369,26 +2343,11 @@ html {
 .impact-stats{
   padding: 0.5rem 0 0.75rem;
 }
-.impact-updated{
-  margin: 0 0 1.25rem;
-  color: #708094;
-  font-size: 0.82rem;
-  text-align: center;
-}
 .impact-chart-shell{
   margin: 0 0 1.75rem;
   padding: 1.2rem 1.1rem;
   background: #f7f8fc;
   border-radius: 8px;
-}
-.impact-chart-shell h2{
-  margin: 0 0 1rem;
-  color: #141924;
-  font-family: 'Quicksand', system-ui, sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.15;
-  text-transform: none;
 }
 .impact-chart-card{
   overflow-x: auto;
@@ -2485,11 +2444,11 @@ html {
   overflow: hidden;
   width: 100%;
   min-height: 0.15rem;
-  border-radius: 4px 4px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 .impact-segment{
   display: block;
-  flex: 0 0 auto;
+  min-height: 0;
 }
 .impact-segment-pet,
 .impact-dot-pet{
