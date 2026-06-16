@@ -5,7 +5,7 @@
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 9507,
+      "value": 7736,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 4835,
+      "value": 3628,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2502,
+      "value": 2156,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2170,
+      "value": 1952,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",

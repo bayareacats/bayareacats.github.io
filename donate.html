@@ -4,6 +4,10 @@ title: Donate | Bay Area Cats
 ---
 {% assign givebutter_campaign = site.givebutter_campaign_code | default: 'gMYxJ0' %}
 {% assign givebutter_url = 'https://givebutter.com/' | append: givebutter_campaign %}
+{% assign cats_assisted_total = 0 %}
+{% for impact_year in site.data.impact_stats.charts.yearlyCatTypes.years %}
+    {% assign cats_assisted_total = cats_assisted_total | plus: impact_year.total %}
+{% endfor %}
 
 <section id="main" class="wrapper style1 donate-page">
     <div class="container">
@@ -15,10 +19,12 @@ title: Donate | Bay Area Cats
                         <p class="donate-kicker">Every gift saves lives</p>
                         <h2>Fix one cat.<br/>Change a whole colony.</h2>
                         <p>Bay Area Cats is a volunteer-run, data-driven nonprofit dedicated to reducing cat overpopulation through prevention, rescue, and adoption. Your donation directly funds spay/neuter surgeries, veterinary care, and foster support for cats and kittens across Silicon Valley.</p>
+                        {% if cats_assisted_total %}
                         <div class="donate-hero-stat">
-                            <span class="donate-hero-number">2,143</span>
-                            <span class="donate-hero-label"><strong>cats assisted in 2026</strong> and counting, thanks to donors like you</span>
+                            <span class="donate-hero-number">{{ cats_assisted_total }}</span>
+                            <span class="donate-hero-label"><strong>total cats assisted</strong> and counting, thanks to donors like you</span>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="donate-hero-widget">
                         <div class="donate-widget-shell">
@@ -37,7 +43,7 @@ title: Donate | Bay Area Cats
 
                 <div class="bac-stats bac-stats-donate">
                     <div class="bac-stat">
-                        <div class="bac-num" id="adopted">954</div>
+                        <div class="bac-num" id="adopted">1063</div>
                         <div class="bac-label">
                             <span>total</span>
                             <span>adoptions</span>

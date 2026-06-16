@@ -1528,12 +1528,14 @@
 
 .home-widget-shell {
   max-width: 420px;
+  height: 68px;
   margin: 1.1rem 0 1.4rem;
+  overflow: hidden;
 }
 
 .home-widget-shell givebutter-widget {
   display: block;
-  min-height: 188px;
+  min-height: 0;
 }
 
 .home-donation-intro givebutter-button,
@@ -1567,11 +1569,16 @@
 .donate-page > .container {
   position: relative;
   z-index: 1;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .donate-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+  grid-template-columns: minmax(0, 1fr) minmax(400px, 500px);
   gap: 3.25rem;
   align-items: start;
   margin: 0 0 4.5rem;
@@ -1642,18 +1649,17 @@
 }
 
 .donate-widget-shell {
-  padding: 1.55rem;
+  padding: 1.15rem;
   background: #ffffff;
   border: 1px solid #e5edf4;
   border-radius: 18px;
-  min-height: 420px;
   overflow: hidden;
   box-shadow: 0 18px 42px rgba(36, 48, 62, 0.12);
 }
 
 .donate-widget-shell givebutter-widget {
   display: block;
-  min-height: 380px;
+  min-height: 0;
 }
 
 .donate-giving-card {

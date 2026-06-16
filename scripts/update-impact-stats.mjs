@@ -141,20 +141,26 @@ function countRecordsByCatType(records, catType) {
 }
 
 function buildMetrics(records) {
+  const currentYear = new Date().getFullYear();
+  const impactRecords = records.filter((record) => {
+    const year = Number.parseInt(record.cellValuesByFieldId?.[YEAR_FIELD_ID], 10);
+    return Number.isInteger(year) && year >= CHART_START_YEAR && year <= currentYear;
+  });
+
   return metrics.map((metric) => {
     let value;
 
     if (metric.key === "cats_assisted") {
       value = catTypeSeries.reduce(
-        (total, series) => total + countRecordsByCatType(records, series.value),
+        (total, series) => total + countRecordsByCatType(impactRecords, series.value),
         0,
       );
     } else if (metric.key === "tnr_cats") {
-      value = countRecordsByCatType(records, "Trap-Neuter-Return");
+      value = countRecordsByCatType(impactRecords, "Trap-Neuter-Return");
     } else if (metric.key === "rescued") {
-      value = countRecordsByCatType(records, "Rescued");
+      value = countRecordsByCatType(impactRecords, "Rescued");
     } else {
-      value = countRecordsByCatType(records, "Pet Spay / Neuter");
+      value = countRecordsByCatType(impactRecords, "Pet Spay / Neuter");
     }
 
     return {
