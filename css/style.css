@@ -1528,13 +1528,11 @@
 
 .home-widget-shell {
   max-width: 420px;
-  height: 68px;
   margin: 1.1rem 0 1.4rem;
-  overflow: hidden;
 }
 
 .home-widget-shell givebutter-widget {
-  display: block;
+  display: inline-block;
   min-height: 0;
 }
 
@@ -1648,12 +1646,7 @@
 }
 
 .donate-widget-shell {
-  padding: 0.75rem;
-  background: #ffffff;
-  border: 1px solid #e5edf4;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 18px 42px rgba(36, 48, 62, 0.12);
+  width: 100%;
 }
 
 .donate-widget-shell givebutter-widget {
