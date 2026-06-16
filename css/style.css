@@ -1566,7 +1566,7 @@
 .donate-page > .container {
   position: relative;
   z-index: 1;
-  max-width: 1180px;
+  max-width: 1220px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2rem;
@@ -1575,8 +1575,8 @@
 
 .donate-hero {
   display: grid;
-  grid-template-columns: minmax(360px, 0.85fr) minmax(520px, 560px);
-  gap: 2.25rem;
+  grid-template-columns: minmax(390px, 1fr) minmax(520px, 560px);
+  gap: 2rem;
   align-items: start;
   margin: 0 0 4.5rem;
   padding-top: 3rem;
