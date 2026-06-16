@@ -1538,13 +1538,12 @@
   min-height: 0;
 }
 
-.home-donation-intro givebutter-button,
-.footer-cta givebutter-button {
+.footer-cta givebutter-widget {
   display: inline-block;
   vertical-align: middle;
 }
 
-.footer-cta givebutter-button {
+.footer-cta givebutter-widget {
   margin: 0 0.2rem;
 }
 
@@ -1569,7 +1568,7 @@
 .donate-page > .container {
   position: relative;
   z-index: 1;
-  max-width: 1180px;
+  max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2rem;
@@ -1578,8 +1577,8 @@
 
 .donate-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(400px, 500px);
-  gap: 3.25rem;
+  grid-template-columns: minmax(320px, 0.8fr) minmax(560px, 680px);
+  gap: 2.75rem;
   align-items: start;
   margin: 0 0 4.5rem;
   padding-top: 3rem;
@@ -1649,7 +1648,7 @@
 }
 
 .donate-widget-shell {
-  padding: 1.15rem;
+  padding: 0.75rem;
   background: #ffffff;
   border: 1px solid #e5edf4;
   border-radius: 18px;
@@ -1659,6 +1658,7 @@
 
 .donate-widget-shell givebutter-widget {
   display: block;
+  width: 100%;
   min-height: 0;
 }
 
@@ -1930,24 +1930,13 @@
 .donate-option-card {
   display: flex;
   flex-direction: column;
-  min-height: 25.25rem;
-  padding: 2.45rem 1.95rem 2rem;
+  min-height: 20.5rem;
+  padding: 2rem 1.95rem;
   background: #f3f8fc;
   border: 0;
   border-radius: 26px;
   box-shadow: 0 2px 10px rgba(40, 90, 168, 0.04);
   text-align: left;
-}
-
-.donate-option-icon {
-  display: grid;
-  place-items: center;
-  width: 4.4rem;
-  height: 4.4rem;
-  margin-bottom: 2rem;
-  background: #e8f0fb;
-  border-radius: 18px;
-  font-size: 1.45rem;
 }
 
 .donate-option-card h4 {
@@ -2297,10 +2286,6 @@ html {
   .donate-option-card {
     min-height: 0;
     padding: 1.6rem;
-  }
-
-  .donate-option-icon {
-    margin-bottom: 1.25rem;
   }
 }
 
