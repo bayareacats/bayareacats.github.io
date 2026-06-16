@@ -8,7 +8,14 @@ const BASE_ID = "appklgrXgkT9hR2Ts";
 const INTERFACE_ID = "pbd0Wf6B070Uofn2i";
 const PAGE_ID = "pag1nZ5rVYwBnnREh";
 const OUTPUT_FILE = resolve("_data/impact_stats.json");
-const PAGE_SIZE = Number.parseInt(process.env.AIRTABLE_STATS_PAGE_SIZE || "10000", 10);
+const MAX_PAGE_SIZE = 1000;
+const requestedPageSize = Number.parseInt(
+  process.env.AIRTABLE_STATS_PAGE_SIZE || String(MAX_PAGE_SIZE),
+  10,
+);
+const PAGE_SIZE = Number.isInteger(requestedPageSize)
+  ? Math.min(requestedPageSize, MAX_PAGE_SIZE)
+  : MAX_PAGE_SIZE;
 const CAT_TABLE_ID = "tblQ2W7X4SLNfERIP";
 const YEAR_FIELD_ID = "fld4k3z7yAq8zQpfD";
 const CAT_TYPE_FIELD_ID = "fldiK7pB4M5DnbMRG";
@@ -109,27 +116,7 @@ async function runAirtableTool(toolName, input) {
   return JSON.parse(stdout);
 }
 
-async function countRecordsForElement(metric) {
-  const response = await runAirtableTool("list-records-for-page", {
-    baseId: BASE_ID,
-    interfaceId: INTERFACE_ID,
-    pageId: PAGE_ID,
-    elementId: metric.elementId,
-    pageSize: PAGE_SIZE,
-  });
-
-  const records = response.recordsByTableId?.[metric.tableId] || [];
-
-  if (records.length >= PAGE_SIZE) {
-    console.warn(
-      `Warning: ${metric.label} returned ${records.length} records, which matches AIRTABLE_STATS_PAGE_SIZE. Increase the page size if this looks capped.`,
-    );
-  }
-
-  return records.length;
-}
-
-async function listAllCatsForChart() {
+async function listAllCats() {
   const records = [];
   let cursor;
 
@@ -147,6 +134,42 @@ async function listAllCatsForChart() {
   } while (cursor);
 
   return records;
+}
+
+function countRecordsByCatType(records, catType) {
+  return records.filter((record) => record.cellValuesByFieldId?.[CAT_TYPE_FIELD_ID] === catType).length;
+}
+
+function buildMetrics(records) {
+  return metrics.map((metric) => {
+    let value;
+
+    if (metric.key === "cats_assisted") {
+      value = catTypeSeries.reduce(
+        (total, series) => total + countRecordsByCatType(records, series.value),
+        0,
+      );
+    } else if (metric.key === "tnr_cats") {
+      value = countRecordsByCatType(records, "Trap-Neuter-Return");
+    } else if (metric.key === "rescued") {
+      value = countRecordsByCatType(records, "Rescued");
+    } else {
+      value = countRecordsByCatType(records, "Pet Spay / Neuter");
+    }
+
+    return {
+      key: metric.key,
+      label: metric.label,
+      value,
+      source: {
+        baseId: BASE_ID,
+        interfaceId: INTERFACE_ID,
+        pageId: PAGE_ID,
+        elementId: metric.elementId,
+        tableId: metric.tableId,
+      },
+    };
+  });
 }
 
 function formatCompact(value) {
@@ -229,26 +252,9 @@ function buildYearlyChart(records) {
 
 async function main() {
   const generatedAt = new Date().toISOString();
-  const updatedMetrics = [];
-
-  for (const metric of metrics) {
-    const value = await countRecordsForElement(metric);
-    updatedMetrics.push({
-      key: metric.key,
-      label: metric.label,
-      value,
-      source: {
-        baseId: BASE_ID,
-        interfaceId: INTERFACE_ID,
-        pageId: PAGE_ID,
-        elementId: metric.elementId,
-        tableId: metric.tableId,
-      },
-    });
-  }
-
-  const chartRecords = await listAllCatsForChart();
-  const yearlyCatTypes = buildYearlyChart(chartRecords);
+  const records = await listAllCats();
+  const updatedMetrics = buildMetrics(records);
+  const yearlyCatTypes = buildYearlyChart(records);
 
   const output = {
     generatedAt,
