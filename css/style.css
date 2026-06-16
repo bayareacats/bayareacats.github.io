@@ -1575,8 +1575,8 @@
 
 .donate-hero {
   display: grid;
-  grid-template-columns: minmax(320px, 0.8fr) minmax(560px, 600px);
-  gap: 2.75rem;
+  grid-template-columns: minmax(360px, 0.85fr) minmax(520px, 560px);
+  gap: 2.25rem;
   align-items: start;
   margin: 0 0 4.5rem;
   padding-top: 3rem;
@@ -1605,7 +1605,7 @@
 }
 
 .donate-hero-copy > p:not(.donate-kicker) {
-  max-width: 32rem;
+  max-width: 38rem;
   color: #556276;
   font-size: 1rem;
   line-height: 1.75;
@@ -1641,17 +1641,16 @@
 }
 
 .donate-hero-widget {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
   min-width: 0;
 }
 
-.donate-widget-shell {
-  width: 100%;
-}
-
-.donate-widget-shell givebutter-widget {
+.donate-hero-widget givebutter-widget {
   display: block;
-  width: 100%;
+  width: 560px;
+  max-width: 100%;
   min-height: 0;
 }
 
