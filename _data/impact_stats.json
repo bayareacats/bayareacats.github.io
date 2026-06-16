@@ -1,11 +1,11 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-06-15T23:56:31Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": null,
+      "value": 7732,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": null,
+      "value": 3633,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": null,
+      "value": 2152,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": null,
+      "value": 1947,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -54,8 +54,33 @@
   "charts": {
     "yearlyCatTypes": {
       "title": "Cats Assisted Per Year",
-      "maxValue": 0,
-      "yAxis": [],
+      "maxValue": 3000,
+      "yAxis": [
+        {
+          "value": 2500,
+          "label": "2.5k"
+        },
+        {
+          "value": 2000,
+          "label": "2k"
+        },
+        {
+          "value": 1500,
+          "label": "1.5k"
+        },
+        {
+          "value": 1000,
+          "label": "1k"
+        },
+        {
+          "value": 500,
+          "label": "0.5k"
+        },
+        {
+          "value": 0,
+          "label": "0k"
+        }
+      ],
       "series": [
         {
           "key": "tnr",
@@ -70,7 +95,108 @@
           "label": "Pet Spay / Neuter"
         }
       ],
-      "years": []
+      "years": [
+        {
+          "year": 2022,
+          "total": 667,
+          "segments": {
+            "tnr": {
+              "value": 436,
+              "height": 14.533333333333333
+            },
+            "rescued": {
+              "value": 225,
+              "height": 7.5
+            },
+            "pet_spay_neuter": {
+              "value": 6,
+              "height": 0.2
+            }
+          },
+          "label": "667",
+          "height": 22.233333333333334
+        },
+        {
+          "year": 2023,
+          "total": 993,
+          "segments": {
+            "tnr": {
+              "value": 519,
+              "height": 17.3
+            },
+            "rescued": {
+              "value": 254,
+              "height": 8.466666666666667
+            },
+            "pet_spay_neuter": {
+              "value": 220,
+              "height": 7.333333333333333
+            }
+          },
+          "label": "993",
+          "height": 33.1
+        },
+        {
+          "year": 2024,
+          "total": 1051,
+          "segments": {
+            "tnr": {
+              "value": 756,
+              "height": 25.2
+            },
+            "rescued": {
+              "value": 123,
+              "height": 4.1
+            },
+            "pet_spay_neuter": {
+              "value": 172,
+              "height": 5.733333333333333
+            }
+          },
+          "label": "1.051k",
+          "height": 35.03333333333333
+        },
+        {
+          "year": 2025,
+          "total": 2661,
+          "segments": {
+            "tnr": {
+              "value": 1377,
+              "height": 45.9
+            },
+            "rescued": {
+              "value": 611,
+              "height": 20.366666666666667
+            },
+            "pet_spay_neuter": {
+              "value": 673,
+              "height": 22.433333333333334
+            }
+          },
+          "label": "2.661k",
+          "height": 88.7
+        },
+        {
+          "year": 2026,
+          "total": 2360,
+          "segments": {
+            "tnr": {
+              "value": 545,
+              "height": 18.166666666666668
+            },
+            "rescued": {
+              "value": 939,
+              "height": 31.3
+            },
+            "pet_spay_neuter": {
+              "value": 876,
+              "height": 29.2
+            }
+          },
+          "label": "2.36k",
+          "height": 78.66666666666666
+        }
+      ]
     }
   }
 }
