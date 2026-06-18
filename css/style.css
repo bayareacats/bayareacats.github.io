@@ -1566,7 +1566,7 @@
 .donate-page > .container {
   position: relative;
   z-index: 1;
-  max-width: 1220px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2rem;
@@ -1630,9 +1630,9 @@
 }
 
 .donate-hero-label {
-  max-width: 14rem;
+  max-width: 18rem;
   color: #708094;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   line-height: 1.35;
 }
 
@@ -2308,12 +2308,14 @@ html {
 }
 .bac-stats-donate{
   grid-template-columns: 1fr;
-  justify-self: start;
+  justify-self: end;
+  align-self: center;
   padding-top: 0;
 }
 .bac-stats-donate .bac-stat{
   width: fit-content;
-  margin-left: 4rem;
+  margin-left: auto;
+  margin-right: 0;
 }
 .bac-stats-donate .bac-label{
   align-items: center;
