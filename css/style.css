@@ -1644,8 +1644,10 @@
 .donate-hero-widget {
   display: flex;
   justify-content: flex-end;
+  justify-self: end;
   width: 100%;
   min-width: 0;
+  transform: translateX(5rem);
 }
 
 .donate-hero-widget givebutter-widget {
@@ -2233,6 +2235,10 @@ html {
     gap: 1.75rem;
     margin-bottom: 3rem;
     padding-top: 1.5rem;
+  }
+
+  .donate-hero-widget {
+    transform: none;
   }
 
   .donate-hero h2 {
