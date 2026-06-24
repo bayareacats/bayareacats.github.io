@@ -95,69 +95,7 @@ layout: landing-page
     <hr class="major" />
 
       <h3>Our impact</h3>
-      {% assign has_impact_stats = false %}
-      {% for metric in site.data.impact_stats.metrics %}
-        {% if metric.value != nil %}
-          {% assign has_impact_stats = true %}
-        {% endif %}
-      {% endfor %}
-      {% if has_impact_stats %}
-      <section class="impact-snapshot" aria-label="Impact snapshot">
-        <div class="bac-stats impact-stats">
-          {% for metric in site.data.impact_stats.metrics %}
-            {% if metric.value != nil %}
-            <div class="bac-stat">
-              <div class="bac-num">{{ metric.value }}</div>
-              <div class="bac-label">{{ metric.label }}</div>
-            </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </section>
-      {% endif %}
-      {% assign yearly_chart = site.data.impact_stats.charts.yearlyCatTypes %}
-      {% if yearly_chart.years.size > 0 %}
-      <section class="impact-chart-shell" aria-label="{{ yearly_chart.title }}">
-        <div class="impact-chart-card">
-          <h3>{{ yearly_chart.title }}</h3>
-          <div class="impact-chart-body">
-            <div class="impact-y-axis" aria-hidden="true">
-              {% for tick in yearly_chart.yAxis %}
-              <span>{{ tick.label }}</span>
-              {% endfor %}
-            </div>
-            <div class="impact-plot">
-              <div class="impact-grid" aria-hidden="true">
-                {% for tick in yearly_chart.yAxis %}
-                <span></span>
-                {% endfor %}
-              </div>
-              <div class="impact-bars" style="grid-template-columns: repeat({{ yearly_chart.years.size }}, minmax(5.5rem, 1fr))">
-                {% for year in yearly_chart.years %}
-                <div class="impact-year">
-                  <div class="impact-total-label" style="bottom: calc({{ year.height }}% + 0.35rem)">{{ year.label }}</div>
-                  <div class="impact-bar" style="height: {{ year.height }}%" aria-label="{{ year.year }}: {{ year.total }} cats assisted">
-                    <span class="impact-segment impact-segment-pet" style="flex: {{ year.segments.pet_spay_neuter.value }} 1 0"></span>
-                    <span class="impact-segment impact-segment-rescued" style="flex: {{ year.segments.rescued.value }} 1 0"></span>
-                    <span class="impact-segment impact-segment-tnr" style="flex: {{ year.segments.tnr.value }} 1 0"></span>
-                  </div>
-                  <div class="impact-year-label">{{ year.year }}</div>
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-            <div class="impact-legend" aria-label="Cat type legend">
-              <h4>Cat Type</h4>
-              <div><span class="impact-dot impact-dot-pet"></span>Pet Spay / Neuter</div>
-              <div><span class="impact-dot impact-dot-rescued"></span>Rescued</div>
-              <div><span class="impact-dot impact-dot-tnr"></span>Trap-Neuter-Return</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {% else %}
       <iframe class="airtable-embed" src="https://airtable.com/embed/appklgrXgkT9hR2Ts/shr4RCpUUqQAJ2wlL" frameborder="0" onmousewheel="" width="100%" height="950" style="background: transparent; border: 1px solid #ccc;"></iframe>
-      {% endif %}
 
 
       <hr class="major" />
