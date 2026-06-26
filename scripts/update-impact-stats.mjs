@@ -21,6 +21,12 @@ const YEAR_FIELD_ID = "fld4k3z7yAq8zQpfD";
 const CAT_TYPE_FIELD_ID = "fldiK7pB4M5DnbMRG";
 const CHART_START_YEAR = 2022;
 const EXCLUDED_CAT_TYPES = new Set(["Pending Outcome"]);
+const ASSISTED_CAT_TYPES = new Set([
+  "Rescued",
+  "Pet Spay / Neuter",
+  "Trap-Neuter-Return",
+  "Other Service",
+]);
 
 const metrics = [
   {
@@ -64,6 +70,11 @@ const catTypeSeries = [
     key: "pet_spay_neuter",
     label: "Pet Spay / Neuter",
     value: "Pet Spay / Neuter",
+  },
+  {
+    key: "other_service",
+    label: "Other Service",
+    value: "Other Service",
   },
 ];
 
@@ -137,30 +148,43 @@ async function listAllCats() {
   return records;
 }
 
-function countRecordsByCatType(records, catType) {
-  return records.filter((record) => record.cellValuesByFieldId?.[CAT_TYPE_FIELD_ID] === catType).length;
+function getFieldValueName(value) {
+  if (Array.isArray(value)) {
+    return value.map(getFieldValueName).filter(Boolean);
+  }
+
+  if (value && typeof value === "object" && "name" in value) {
+    return value.name;
+  }
+
+  return value;
 }
 
-function isIncludedCatType(record) {
-  const catType = record.cellValuesByFieldId?.[CAT_TYPE_FIELD_ID];
-  return catType && !EXCLUDED_CAT_TYPES.has(catType);
+function getCatType(record) {
+  return getFieldValueName(record.cellValuesByFieldId?.[CAT_TYPE_FIELD_ID]);
+}
+
+function countRecordsByCatType(records, catType) {
+  return records.filter((record) => getCatType(record) === catType).length;
+}
+
+function isAssistedCatType(record) {
+  const catType = getCatType(record);
+  return ASSISTED_CAT_TYPES.has(catType) && !EXCLUDED_CAT_TYPES.has(catType);
 }
 
 function buildMetrics(records) {
   const currentYear = new Date().getFullYear();
   const impactRecords = records.filter((record) => {
     const year = Number.parseInt(record.cellValuesByFieldId?.[YEAR_FIELD_ID], 10);
-    return Number.isInteger(year) && year >= CHART_START_YEAR && year <= currentYear && isIncludedCatType(record);
+    return Number.isInteger(year) && year >= CHART_START_YEAR && year <= currentYear && isAssistedCatType(record);
   });
 
   return metrics.map((metric) => {
     let value;
 
     if (metric.key === "cats_assisted") {
-      value = catTypeSeries.reduce(
-        (total, series) => total + countRecordsByCatType(impactRecords, series.value),
-        0,
-      );
+      value = impactRecords.length;
     } else if (metric.key === "tnr_cats") {
       value = countRecordsByCatType(impactRecords, "Trap-Neuter-Return");
     } else if (metric.key === "rescued") {
@@ -203,9 +227,9 @@ function buildYearlyChart(records) {
   for (const record of records) {
     const values = record.cellValuesByFieldId || {};
     const year = Number.parseInt(values[YEAR_FIELD_ID], 10);
-    const catType = values[CAT_TYPE_FIELD_ID];
+    const catType = getCatType(record);
 
-    if (!Number.isInteger(year) || year < CHART_START_YEAR || year > currentYear || EXCLUDED_CAT_TYPES.has(catType)) {
+    if (!Number.isInteger(year) || year < CHART_START_YEAR || year > currentYear || !ASSISTED_CAT_TYPES.has(catType)) {
       continue;
     }
 
