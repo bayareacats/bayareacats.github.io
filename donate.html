@@ -4,9 +4,11 @@ title: Donate | Bay Area Cats
 ---
 {% assign givebutter_campaign = site.givebutter_campaign_code | default: 'gMYxJ0' %}
 {% assign givebutter_url = 'https://givebutter.com/' | append: givebutter_campaign %}
-{% assign cats_assisted_total = 0 %}
-{% for impact_year in site.data.impact_stats.charts.yearlyCatTypes.years %}
-    {% assign cats_assisted_total = cats_assisted_total | plus: impact_year.total %}
+{% assign cats_assisted_total = nil %}
+{% for metric in site.data.impact_stats.metrics %}
+    {% if metric.key == 'cats_assisted' %}
+        {% assign cats_assisted_total = metric.value %}
+    {% endif %}
 {% endfor %}
 
 <section id="main" class="wrapper style1 donate-page">

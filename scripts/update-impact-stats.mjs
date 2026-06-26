@@ -20,6 +20,7 @@ const CAT_TABLE_ID = "tblQ2W7X4SLNfERIP";
 const YEAR_FIELD_ID = "fld4k3z7yAq8zQpfD";
 const CAT_TYPE_FIELD_ID = "fldiK7pB4M5DnbMRG";
 const CHART_START_YEAR = 2022;
+const EXCLUDED_CAT_TYPES = new Set(["Pending Outcome"]);
 
 const metrics = [
   {
@@ -140,11 +141,16 @@ function countRecordsByCatType(records, catType) {
   return records.filter((record) => record.cellValuesByFieldId?.[CAT_TYPE_FIELD_ID] === catType).length;
 }
 
+function isIncludedCatType(record) {
+  const catType = record.cellValuesByFieldId?.[CAT_TYPE_FIELD_ID];
+  return catType && !EXCLUDED_CAT_TYPES.has(catType);
+}
+
 function buildMetrics(records) {
   const currentYear = new Date().getFullYear();
   const impactRecords = records.filter((record) => {
     const year = Number.parseInt(record.cellValuesByFieldId?.[YEAR_FIELD_ID], 10);
-    return Number.isInteger(year) && year >= CHART_START_YEAR && year <= currentYear;
+    return Number.isInteger(year) && year >= CHART_START_YEAR && year <= currentYear && isIncludedCatType(record);
   });
 
   return metrics.map((metric) => {
@@ -199,7 +205,7 @@ function buildYearlyChart(records) {
     const year = Number.parseInt(values[YEAR_FIELD_ID], 10);
     const catType = values[CAT_TYPE_FIELD_ID];
 
-    if (!Number.isInteger(year) || year < CHART_START_YEAR || year > currentYear) {
+    if (!Number.isInteger(year) || year < CHART_START_YEAR || year > currentYear || EXCLUDED_CAT_TYPES.has(catType)) {
       continue;
     }
 
