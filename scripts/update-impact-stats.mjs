@@ -20,6 +20,8 @@ const CAT_TABLE_ID = "tblQ2W7X4SLNfERIP";
 const YEAR_FIELD_ID = "fld4k3z7yAq8zQpfD";
 const CAT_TYPE_FIELD_ID = "fldiK7pB4M5DnbMRG";
 const CHART_START_YEAR = 2022;
+const SHELTERLUV_API_BASE_URL = "https://www.shelterluv.com/api/v1";
+const SHELTERLUV_PAGE_SIZE = 100;
 const EXCLUDED_CAT_TYPES = new Set(["Pending Outcome"]);
 const ASSISTED_CAT_TYPES = new Set([
   "Rescued",
@@ -148,6 +150,49 @@ async function listAllCats() {
   return records;
 }
 
+async function fetchShelterluvJson(path, query = {}) {
+  const apiKey = process.env.SHELTERLUV_API_KEY;
+  if (!apiKey) {
+    throw new Error("SHELTERLUV_API_KEY is required to update adoption stats");
+  }
+
+  const url = new URL(`${SHELTERLUV_API_BASE_URL}/${path}`);
+  for (const [key, value] of Object.entries(query)) {
+    url.searchParams.set(key, String(value));
+  }
+
+  const response = await fetch(url, {
+    headers: {
+      "X-API-Key": apiKey,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Shelterluv ${path} request failed: ${response.status} ${await response.text()}`);
+  }
+
+  return response.json();
+}
+
+async function listAllShelterluvEvents() {
+  const events = [];
+
+  for (let offset = 0; ; offset += SHELTERLUV_PAGE_SIZE) {
+    const response = await fetchShelterluvJson("events", {
+      limit: SHELTERLUV_PAGE_SIZE,
+      offset,
+    });
+
+    events.push(...(response.events || []));
+
+    if (!response.has_more || events.length >= response.total_count) {
+      break;
+    }
+  }
+
+  return events;
+}
+
 function getFieldValueName(value) {
   if (Array.isArray(value)) {
     return value.map(getFieldValueName).filter(Boolean);
@@ -173,14 +218,64 @@ function isAssistedCatType(record) {
   return ASSISTED_CAT_TYPES.has(catType) && !EXCLUDED_CAT_TYPES.has(catType);
 }
 
-function buildMetrics(records) {
+function getEventAnimalId(event) {
+  return event.AssociatedRecords?.find((record) => record.Type === "Animal")?.Id;
+}
+
+function getEventTime(event) {
+  return Number.parseInt(event.Time, 10) || 0;
+}
+
+function countCurrentAdoptions(events) {
+  const eventsByAnimal = new Map();
+
+  for (const event of events) {
+    const animalId = getEventAnimalId(event);
+    if (!animalId) {
+      continue;
+    }
+
+    if (!eventsByAnimal.has(animalId)) {
+      eventsByAnimal.set(animalId, []);
+    }
+
+    eventsByAnimal.get(animalId).push(event);
+  }
+
+  let adoptionCount = 0;
+
+  for (const animalEvents of eventsByAnimal.values()) {
+    const latestEvent = [...animalEvents].sort((a, b) => getEventTime(a) - getEventTime(b)).at(-1);
+
+    if (latestEvent?.Type === "Outcome.Adoption") {
+      adoptionCount += 1;
+    }
+  }
+
+  return adoptionCount;
+}
+
+function buildAdoptionMetric(events) {
+  return {
+    key: "adoptions",
+    label: "Adoptions",
+    value: countCurrentAdoptions(events),
+    source: {
+      api: "Shelterluv",
+      endpoint: "/api/v1/events",
+      rule: "Count animals whose latest event is Outcome.Adoption",
+    },
+  };
+}
+
+function buildMetrics(records, shelterluvEvents) {
   const currentYear = new Date().getFullYear();
   const impactRecords = records.filter((record) => {
     const year = Number.parseInt(record.cellValuesByFieldId?.[YEAR_FIELD_ID], 10);
     return Number.isInteger(year) && year >= CHART_START_YEAR && year <= currentYear && isAssistedCatType(record);
   });
 
-  return metrics.map((metric) => {
+  const airtableMetrics = metrics.map((metric) => {
     let value;
 
     if (metric.key === "cats_assisted") {
@@ -206,6 +301,8 @@ function buildMetrics(records) {
       },
     };
   });
+
+  return [...airtableMetrics, buildAdoptionMetric(shelterluvEvents)];
 }
 
 function formatCompact(value) {
@@ -288,8 +385,11 @@ function buildYearlyChart(records) {
 
 async function main() {
   const generatedAt = new Date().toISOString();
-  const records = await listAllCats();
-  const updatedMetrics = buildMetrics(records);
+  const [records, shelterluvEvents] = await Promise.all([
+    listAllCats(),
+    listAllShelterluvEvents(),
+  ]);
+  const updatedMetrics = buildMetrics(records, shelterluvEvents);
   const yearlyCatTypes = buildYearlyChart(records);
 
   const output = {

@@ -49,6 +49,16 @@
         "elementId": "peltGhHs2iXpHCzid",
         "tableId": "tblQ2W7X4SLNfERIP"
       }
+    },
+    {
+      "key": "adoptions",
+      "label": "Adoptions",
+      "value": 1106,
+      "source": {
+        "api": "Shelterluv",
+        "endpoint": "/api/v1/events",
+        "rule": "Count animals whose latest event is Outcome.Adoption"
+      }
     }
   ],
   "charts": {
