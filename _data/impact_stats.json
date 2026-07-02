@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-01T17:09:21.322Z",
+  "generatedAt": "2026-07-02T16:46:25.693Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 7793,
+      "value": 7801,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 3534,
+      "value": 3533,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2232,
+      "value": 2240,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1106,
+      "value": 1109,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -208,27 +208,27 @@
         },
         {
           "year": 2026,
-          "total": 2474,
+          "total": 2482,
           "segments": {
             "tnr": {
-              "value": 529,
-              "height": 17.633333333333333
+              "value": 528,
+              "height": 17.599999999999998
             },
             "rescued": {
-              "value": 1049,
-              "height": 34.96666666666667
+              "value": 1057,
+              "height": 35.233333333333334
             },
             "pet_spay_neuter": {
               "value": 874,
               "height": 29.133333333333333
             },
             "other_service": {
-              "value": 22,
-              "height": 0.7333333333333333
+              "value": 23,
+              "height": 0.7666666666666666
             }
           },
-          "label": "2.474k",
-          "height": 82.46666666666667
+          "label": "2.482k",
+          "height": 82.73333333333333
         }
       ]
     }
