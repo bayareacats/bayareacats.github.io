@@ -439,7 +439,7 @@
 		}
 
 	.home-link-card {
-		background: #cfeefb;
+		background: #DCF0F9;
 		border: 0;
 		border-radius: 30px;
 		overflow: hidden;
@@ -2177,7 +2177,7 @@ html {
   max-width: 420px;
 }
 
-.home-newsletter-widget givebutter-signup-form {
+.home-newsletter-widget givebutter-widget {
   display: block;
   width: 100%;
   min-height: 0;
