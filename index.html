@@ -100,25 +100,21 @@ layout: landing-page
 
       <hr class="major" />
 
-      <section class="home-highlight-banner">
-        <div class="home-highlight-copy">
-          <p class="home-highlight-eyebrow">Lost and found support</p>
-          <h2>Reunite lost cats with Petco Love Lost</h2>
-          <p class="home-highlight-text">If you have found a cat or are searching for one, start with Petco Love Lost's free national photo-matching tool and report the cat to our team so we can help guide next steps locally.</p>
-          <div class="home-highlight-actions">
-            <a class="button" href="https://petcolove.org/lost/signup/?utm_medium=referral&utm_source=shelter&redirect=lost-report&utm_campaign=lost-lostfound-shelter-1250492" target="_blank" rel="noopener noreferrer">Search Petco Love Lost</a>
-            <a class="button alt" href="contact">Contact Bay Area Cats</a>
-          </div>
+      <section class="home-newsletter" id="newsletter">
+        <div class="home-newsletter-copy">
+          <p class="home-newsletter-eyebrow">Stay connected</p>
+          <h3>Join our newsletter</h3>
+          <p>Subscribe to stay up to date on our trapping projects, adoptable cat stories, and rescue journeys from the cats we're fixing across Cupertino, Sunnyvale, and throughout the Bay Area.</p>
         </div>
-        <div class="home-highlight-art">
-          <div class="home-highlight-art-frame">
-            <img src="images/petco-love-lost.png" alt="Petco Love Lost reuniting pets" />
-          </div>
+        <div class="home-newsletter-widget">
+          <givebutter-signup-form
+            account="{{ site.givebutter_account_id }}"
+            type="static"
+            button-text="Subscribe"
+          ></givebutter-signup-form>
         </div>
       </section>
 
-
- 
       <p></p>
     
     </div>
