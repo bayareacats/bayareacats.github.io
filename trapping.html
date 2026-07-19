@@ -29,8 +29,103 @@ description: Trapping tips, TNR appointment resources, trap rentals, and step-by
                     <li><b>Trap the cats</b>. Withold food 12-36 hours before trapping. Only trap the cats the night before your appointmnet.</li>
                 </ol>
 
-            <p><b>Not enough or feeling overwhelmed?</b> Contact us at <a target="_blank" href="mailto:info@bayareacats.org">info@bayareacats.org</a>.</p>
-                
+            <p><b>Not enough or feeling overwhelmed?</b> Contact us at <a href="mailto:info@bayareacats.org">info@bayareacats.org</a> or sign up for our TNR workshop!</p>
+            <button type="button" class="donate-button" id="tnr-workshop-open">Sign up for TNR workshop</button>
+
+            <dialog id="tnr-workshop-dialog" class="tnr-workshop-dialog" aria-labelledby="tnr-workshop-title">
+                <div class="tnr-workshop-dialog-header">
+                    <h3 id="tnr-workshop-title">Sign up for our TNR workshop</h3>
+                    <button type="button" class="tnr-workshop-close" aria-label="Close workshop sign-up form">&times;</button>
+                </div>
+                <iframe class="airtable-embed" src="https://airtable.com/embed/appl6aUTyRKbPW5wU/pageT9QNpiFaK0zSX/form" title="TNR workshop sign-up form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+            </dialog>
+
+            <style>
+                .tnr-workshop-dialog {
+                    box-sizing: border-box;
+                    width: min(96vw, 1100px);
+                    height: 94vh;
+                    height: 94dvh;
+                    max-height: 94vh;
+                    padding: 1.5em;
+                    border: 0;
+                    border-radius: 0.4em;
+                    box-shadow: 0 1em 3em rgba(0, 0, 0, 0.35);
+                    overflow: hidden;
+                }
+
+                .tnr-workshop-dialog[open] {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .tnr-workshop-dialog::backdrop {
+                    background: rgba(0, 0, 0, 0.65);
+                }
+
+                .tnr-workshop-dialog-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 1em;
+                    margin-bottom: 1em;
+                }
+
+                .tnr-workshop-dialog-header h3 {
+                    margin: 0;
+                }
+
+                .tnr-workshop-close {
+                    flex: 0 0 auto;
+                    min-width: 2.25em;
+                    padding: 0;
+                    border: 0;
+                    background: transparent;
+                    color: inherit;
+                    font-size: 1.75em;
+                    line-height: 1.25;
+                    cursor: pointer;
+                }
+
+                .tnr-workshop-dialog .airtable-embed {
+                    display: block;
+                    flex: 1 1 auto;
+                    min-height: 0;
+                }
+            </style>
+
+            <script>
+                (function () {
+                    const dialog = document.getElementById('tnr-workshop-dialog');
+                    const openButton = document.getElementById('tnr-workshop-open');
+                    const closeButton = dialog.querySelector('.tnr-workshop-close');
+                    let scrollPosition = 0;
+
+                    openButton.addEventListener('click', function () {
+                        scrollPosition = window.scrollY;
+                        document.body.style.position = 'fixed';
+                        document.body.style.top = '-' + scrollPosition + 'px';
+                        document.body.style.width = '100%';
+                        dialog.showModal();
+                    });
+
+                    closeButton.addEventListener('click', function () {
+                        dialog.close();
+                    });
+
+                    dialog.addEventListener('click', function (event) {
+                        if (event.target === dialog) dialog.close();
+                    });
+
+                    dialog.addEventListener('close', function () {
+                        document.body.style.position = '';
+                        document.body.style.top = '';
+                        document.body.style.width = '';
+                        window.scrollTo(0, scrollPosition);
+                    });
+                })();
+            </script>
+
             </section>
         </div>
 
