@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-19T15:51:34.935Z",
+  "generatedAt": "2026-07-20T16:20:51.248Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 7967,
+      "value": 7981,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2297,
+      "value": 2306,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 1964,
+      "value": 1968,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1179,
+      "value": 1184,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -208,27 +208,27 @@
         },
         {
           "year": 2026,
-          "total": 2646,
+          "total": 2660,
           "segments": {
             "tnr": {
               "value": 590,
               "height": 19.666666666666664
             },
             "rescued": {
-              "value": 1112,
-              "height": 37.06666666666666
+              "value": 1121,
+              "height": 37.36666666666667
             },
             "pet_spay_neuter": {
-              "value": 917,
-              "height": 30.566666666666663
+              "value": 921,
+              "height": 30.7
             },
             "other_service": {
-              "value": 27,
-              "height": 0.8999999999999999
+              "value": 28,
+              "height": 0.9333333333333335
             }
           },
-          "label": "2.646k",
-          "height": 88.2
+          "label": "2.66k",
+          "height": 88.66666666666667
         }
       ]
     }
