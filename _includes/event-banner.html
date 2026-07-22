@@ -1,13 +1,38 @@
 <div id="event-banner" style="display:none;">
-  <span>Join us for a great meal this Sunday, May 17 at <a class="event-banner-venue" href="https://maps.app.goo.gl/YTB5ZrdgG5PxNx92A" target="_blank" rel="noopener">Eureka! Cupertino</a> (11am&ndash;11pm). Mention <strong>Bay Area Cats</strong> to your server and 15% of your bill supports our rescue! <a class="event-banner-cal" href="/eureka-fundraiser.ics">Add to Calendar</a></span>
+  <span>Dine for a Purr-pose on <strong>Saturday, July 25</strong> at <a class="event-banner-venue" href="https://www.google.com/maps/search/?api=1&amp;query=324%20W%20El%20Camino%20Real%2C%20Sunnyvale%2C%20CA%2094087" target="_blank" rel="noopener">Chipotle Sunnyvale</a> (4&ndash;8pm). <span class="event-banner-order-line"><a class="event-banner-order" href="https://www.chipotle.com/order?restaurant=279" target="_blank" rel="noopener">Order online for pickup</a> with code <button class="event-banner-copy" type="button" data-code="804JEL2" aria-label="Copy fundraiser code 804JEL2"><strong>804JEL2</strong> <span aria-hidden="true">Copy</span></button>, or mention <strong>Bay Area Cats</strong> in person. 25% supports our rescue! <a class="event-banner-cal" href="/chipotle-fundraiser.ics">Add to Calendar</a></span></span>
 </div>
 <script>
 (function () {
-  var DEADLINE = new Date('2026-05-18T04:00:00Z'); // 9pm PDT May 17
+  var DEADLINE = new Date('2026-07-26T03:00:00Z'); // 8pm PDT July 25
   document.addEventListener('DOMContentLoaded', function () {
     var banner = document.getElementById('event-banner');
     if (!banner || new Date() >= DEADLINE) return;
     banner.style.display = '';
+
+    var copyButton = banner.querySelector('.event-banner-copy');
+    if (copyButton) {
+      copyButton.addEventListener('click', function () {
+        var code = copyButton.getAttribute('data-code');
+        var copy = navigator.clipboard && navigator.clipboard.writeText
+          ? navigator.clipboard.writeText(code)
+          : new Promise(function (resolve, reject) {
+              var field = document.createElement('textarea');
+              field.value = code;
+              field.style.position = 'fixed';
+              field.style.opacity = '0';
+              document.body.appendChild(field);
+              field.select();
+              document.execCommand('copy') ? resolve() : reject();
+              document.body.removeChild(field);
+            });
+
+        copy.then(function () {
+          var label = copyButton.querySelector('span');
+          label.textContent = 'Copied!';
+          window.setTimeout(function () { label.textContent = 'Copy'; }, 2000);
+        });
+      });
+    }
   });
 })();
 </script>
