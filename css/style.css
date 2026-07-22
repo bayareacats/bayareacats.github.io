@@ -1259,7 +1259,17 @@
 		}
 
 			#header h1 a {
+				display: inline-flex;
+				align-items: center;
+				gap: 10pt;
 				font-size: 1.3em;
+			}
+
+			#header .site-title-logo {
+				display: block;
+				width: 1.65em;
+				height: 1.65em;
+				object-fit: contain;
 			}
 
 		#header nav {
@@ -2179,7 +2189,7 @@ html {
 
 .home-newsletter {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 2.5rem;
   margin: 0 0 3rem 0;
@@ -2203,6 +2213,20 @@ html {
 .home-newsletter-copy p:not(.home-newsletter-eyebrow) {
   margin: 0;
   color: #000000;
+}
+
+.home-newsletter-image-frame {
+  width: 85%;
+  max-width: 440px;
+  margin: 15pt 0 0;
+  border-radius: 18px;
+}
+
+.home-newsletter-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
 }
 
 .home-newsletter-widget {
