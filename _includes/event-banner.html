@@ -1,4 +1,5 @@
 <div id="event-banner" style="display:none;">
+  <button class="event-banner-close" type="button" aria-label="Dismiss fundraiser banner">&times;</button>
   <span>Dine for a Purr-pose on <strong>Saturday, July 25</strong> at <a class="event-banner-venue" href="https://www.google.com/maps/search/?api=1&amp;query=324%20W%20El%20Camino%20Real%2C%20Sunnyvale%2C%20CA%2094087" target="_blank" rel="noopener">Chipotle Sunnyvale</a> (4&ndash;8pm). <span class="event-banner-order-line"><a class="event-banner-order" href="https://www.chipotle.com/order?restaurant=279" target="_blank" rel="noopener">Order online for pickup</a> with code <button class="event-banner-copy" type="button" data-code="804JEL2" aria-label="Copy fundraiser code 804JEL2"><strong>804JEL2</strong> <span aria-hidden="true">Copy</span></button>, or mention <strong>Bay Area Cats</strong> in person. 25% supports our rescue! <a class="event-banner-cal" href="/chipotle-fundraiser.ics">Add to Calendar</a></span></span>
 </div>
 <script>
@@ -8,6 +9,13 @@
     var banner = document.getElementById('event-banner');
     if (!banner || new Date() >= DEADLINE) return;
     banner.style.display = '';
+
+    var closeButton = banner.querySelector('.event-banner-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', function () {
+        banner.style.display = 'none';
+      });
+    }
 
     var copyButton = banner.querySelector('.event-banner-copy');
     if (copyButton) {

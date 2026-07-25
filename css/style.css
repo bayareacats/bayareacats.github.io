@@ -32,6 +32,34 @@
   font-weight: 600;
 }
 
+#event-banner .event-banner-close {
+  position: absolute;
+  top: 50%;
+  right: 0.65em;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 1.25em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#event-banner .event-banner-close:hover,
+#event-banner .event-banner-close:focus {
+  background: rgba(255, 255, 255, 0.18);
+  outline: 2px solid #CAE9F5;
+  outline-offset: 1px;
+}
+
 #event-banner .event-banner-order-line {
   display: block;
 }
@@ -85,6 +113,14 @@
 
 
 /* Social media icons */
+
+/* Keep the Tally contact form usable if its dynamic-height message is delayed
+   or reports a height that is too small. Tally can still expand beyond this. */
+.contact-request-form {
+  display: block;
+  width: 100%;
+  min-height: 1100px;
+}
 
 /* Make the 3 footer items behave like a centered row */
 #footer ul.copyright.footer-row {
