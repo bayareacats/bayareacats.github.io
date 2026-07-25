@@ -119,7 +119,13 @@
 .contact-request-form {
   display: block;
   width: 100%;
-  min-height: 1100px;
+  min-height: 1800px;
+}
+
+@media screen and (max-width: 736px) {
+  .contact-request-form {
+    min-height: 2200px;
+  }
 }
 
 /* Make the 3 footer items behave like a centered row */
