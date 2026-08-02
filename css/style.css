@@ -1659,15 +1659,20 @@
 }
 
 .donate-hero {
-  display: grid;
-  grid-template-columns: minmax(390px, 1fr) minmax(520px, 560px);
+  container-type: inline-size;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   align-items: start;
+  justify-content: space-between;
   margin: 0 0 4.5rem;
   padding-top: 3rem;
 }
 
 .donate-hero-copy {
+  flex: 1 1 390px;
+  max-width: 38rem;
+  min-width: 0;
   padding-top: 0.25rem;
   padding-right: 1.25rem;
 }
@@ -1717,7 +1722,7 @@
 .donate-hero-label {
   max-width: 18rem;
   color: #708094;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.35;
 }
 
@@ -1728,11 +1733,16 @@
 
 .donate-hero-widget {
   display: flex;
-  justify-content: flex-end;
-  justify-self: end;
+  flex: 1 1 520px;
+  justify-content: flex-start;
   width: 100%;
   min-width: 0;
-  transform: translateX(5rem);
+}
+
+@container (min-width: 942px) {
+  .donate-hero-widget {
+    justify-content: flex-end;
+  }
 }
 
 .donate-hero-widget givebutter-widget {
@@ -2398,9 +2408,10 @@ html {
   }
 
   .donate-hero-stat {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 0.55rem;
+    text-align: center;
   }
 
   .donate-hero-label {
