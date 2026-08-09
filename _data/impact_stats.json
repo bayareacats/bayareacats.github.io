@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-08T15:22:44.894Z",
+  "generatedAt": "2026-08-09T15:23:59.879Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 8512,
+      "value": 8513,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 3886,
+      "value": 3887,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1220,
+      "value": 1237,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -212,11 +212,11 @@
         },
         {
           "year": 2026,
-          "total": 3186,
+          "total": 3187,
           "segments": {
             "tnr": {
-              "value": 863,
-              "height": 24.65714285714286
+              "value": 864,
+              "height": 24.685714285714287
             },
             "rescued": {
               "value": 1196,
@@ -231,8 +231,8 @@
               "height": 0.6857142857142857
             }
           },
-          "label": "3.186k",
-          "height": 91.02857142857142
+          "label": "3.187k",
+          "height": 91.05714285714286
         }
       ]
     }
