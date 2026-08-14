@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-13T15:53:13.852Z",
+  "generatedAt": "2026-08-14T15:43:52.749Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 8557,
+      "value": 8562,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2396,
+      "value": 2401,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1237,
+      "value": 1239,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -212,15 +212,15 @@
         },
         {
           "year": 2026,
-          "total": 3231,
+          "total": 3236,
           "segments": {
             "tnr": {
               "value": 888,
               "height": 25.371428571428574
             },
             "rescued": {
-              "value": 1210,
-              "height": 34.57142857142857
+              "value": 1215,
+              "height": 34.714285714285715
             },
             "pet_spay_neuter": {
               "value": 1109,
@@ -231,8 +231,8 @@
               "height": 0.6857142857142857
             }
           },
-          "label": "3.231k",
-          "height": 92.31428571428572
+          "label": "3.236k",
+          "height": 92.45714285714286
         }
       ]
     }
