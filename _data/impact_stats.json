@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-08T18:14:18.518Z",
+  "generatedAt": "2026-09-09T18:13:58.058Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 8948,
+      "value": 8965,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 4042,
+      "value": 4055,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2520,
+      "value": 2523,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2289,
+      "value": 2290,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1303,
+      "value": 1306,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -216,27 +216,27 @@
         },
         {
           "year": 2026,
-          "total": 3622,
+          "total": 3639,
           "segments": {
             "tnr": {
-              "value": 1019,
-              "height": 25.474999999999998
+              "value": 1032,
+              "height": 25.8
             },
             "rescued": {
-              "value": 1334,
-              "height": 33.35
+              "value": 1337,
+              "height": 33.425
             },
             "pet_spay_neuter": {
-              "value": 1243,
-              "height": 31.075000000000003
+              "value": 1244,
+              "height": 31.1
             },
             "other_service": {
               "value": 26,
               "height": 0.65
             }
           },
-          "label": "3.622k",
-          "height": 90.55
+          "label": "3.639k",
+          "height": 90.975
         }
       ]
     }
