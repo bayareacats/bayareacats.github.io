@@ -2486,8 +2486,17 @@ html {
   margin-left: auto;
   margin-right: 0;
 }
-.bac-stats-donate .bac-label{
+.donate-adoptions-stat{
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 0.55rem;
+}
+.donate-adoptions-stat .donate-hero-number{
+  color: #285AA8;
+}
+.donate-adoptions-stat .donate-hero-label strong{
+  color: #0097A7;
 }
 .bac-stat{
   text-align:center;
@@ -2683,13 +2692,31 @@ html {
   .bac-stats{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .donate-impact{
     grid-template-columns: 1fr;
-    row-gap: 1.5rem;
+    row-gap: 1.25rem;
   }
   .donate-impact-copy{
     max-width: none;
   }
+  .donate-impact-copy > p:last-child{
+    margin-bottom: 0;
+  }
   .bac-stats-donate{
-    justify-self: start;
+    display: flex;
+    justify-content: center;
+    justify-self: stretch;
+    padding: 0.75rem 0;
+    width: 100%;
+  }
+  .bac-stats-donate .bac-stat{
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+  .donate-proof{
+    margin-bottom: 0.75rem;
+  }
+  .donate-proof + hr.major{
+    margin-top: 2rem;
   }
 }
 @media (max-width: 480px){
