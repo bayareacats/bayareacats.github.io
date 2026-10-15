@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-14T19:06:31.339Z",
+  "generatedAt": "2026-10-15T18:48:57.720Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 9543,
+      "value": 9569,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 4283,
+      "value": 4292,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2651,
+      "value": 2652,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2501,
+      "value": 2517,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -220,27 +220,27 @@
         },
         {
           "year": 2026,
-          "total": 4217,
+          "total": 4243,
           "segments": {
             "tnr": {
-              "value": 1260,
-              "height": 28.000000000000004
+              "value": 1269,
+              "height": 28.199999999999996
             },
             "rescued": {
-              "value": 1465,
-              "height": 32.55555555555556
+              "value": 1466,
+              "height": 32.577777777777776
             },
             "pet_spay_neuter": {
-              "value": 1455,
-              "height": 32.33333333333333
+              "value": 1471,
+              "height": 32.68888888888889
             },
             "other_service": {
               "value": 37,
               "height": 0.8222222222222223
             }
           },
-          "label": "4.217k",
-          "height": 93.71111111111111
+          "label": "4.243k",
+          "height": 94.28888888888889
         }
       ]
     }
