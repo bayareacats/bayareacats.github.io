@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T18:48:57.720Z",
+  "generatedAt": "2026-10-16T18:33:33.262Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1400,
+      "value": 1398,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
