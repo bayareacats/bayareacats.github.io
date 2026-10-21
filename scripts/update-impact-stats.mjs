@@ -19,6 +19,14 @@ const PAGE_SIZE = Number.isInteger(requestedPageSize)
 const CAT_TABLE_ID = "tblQ2W7X4SLNfERIP";
 const YEAR_FIELD_ID = "fld4k3z7yAq8zQpfD";
 const CAT_TYPE_FIELD_ID = "fldiK7pB4M5DnbMRG";
+const APPOINTMENT_TABLE_ID = "tblOOJuOihxinb4K3";
+const APPOINTMENT_DATE_FIELD_ID = "fldp6Qhsgn7h17CvC";
+const APPOINTMENT_STATUS_FIELD_ID = "fldtkmgmeSxNIFfNc";
+const APPOINTMENT_SERVICES_FIELD_ID = "fldyDhtD3gBqH4kA0";
+const APPOINTMENT_CAT_COUNT_FIELD_ID = "fldcpjnUta0CF8TPN";
+const COMPLETED_STATUS = "Completed";
+const SPAY_NEUTER_SERVICE = "Spay / Neuter";
+const REPORT_TIME_ZONE = "America/Los_Angeles";
 const CHART_START_YEAR = 2022;
 const SHELTERLUV_API_BASE_URL = "https://www.shelterluv.com/api/v1";
 const SHELTERLUV_PAGE_SIZE = 100;
@@ -150,6 +158,31 @@ async function listAllCats() {
   return records;
 }
 
+async function listAllAppointments() {
+  const records = [];
+  let cursor;
+
+  do {
+    const response = await runAirtableTool("list-records-for-table", {
+      baseId: BASE_ID,
+      tableId: APPOINTMENT_TABLE_ID,
+      fieldIds: [
+        APPOINTMENT_DATE_FIELD_ID,
+        APPOINTMENT_STATUS_FIELD_ID,
+        APPOINTMENT_SERVICES_FIELD_ID,
+        APPOINTMENT_CAT_COUNT_FIELD_ID,
+      ],
+      pageSize: PAGE_SIZE,
+      ...(cursor ? { cursor } : {}),
+    });
+
+    records.push(...(response.records || []));
+    cursor = response.nextCursor;
+  } while (cursor);
+
+  return records;
+}
+
 async function fetchShelterluvJson(path, query = {}) {
   const apiKey = process.env.SHELTERLUV_API_KEY;
   if (!apiKey) {
@@ -216,6 +249,65 @@ function countRecordsByCatType(records, catType) {
 function isAssistedCatType(record) {
   const catType = getCatType(record);
   return ASSISTED_CAT_TYPES.has(catType) && !EXCLUDED_CAT_TYPES.has(catType);
+}
+
+function getIsoDateInTimeZone(date, timeZone) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function shiftIsoDate(isoDate, days) {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  const shifted = new Date(Date.UTC(year, month - 1, day + days, 12));
+  return shifted.toISOString().slice(0, 10);
+}
+
+function buildSpayNeuterWeeklyStat(records, now = new Date()) {
+  const today = getIsoDateInTimeZone(now, REPORT_TIME_ZONE);
+  const periodStart = shiftIsoDate(today, -7);
+  const periodEnd = shiftIsoDate(today, -1);
+
+  const catsFixedLastWeek = records.reduce((total, record) => {
+    const values = record.cellValuesByFieldId || {};
+    const appointmentDate = values[APPOINTMENT_DATE_FIELD_ID];
+    const status = getFieldValueName(values[APPOINTMENT_STATUS_FIELD_ID]);
+    const services = getFieldValueName(values[APPOINTMENT_SERVICES_FIELD_ID]);
+    const catCount = Number(values[APPOINTMENT_CAT_COUNT_FIELD_ID]) || 0;
+    const includesSpayNeuter = Array.isArray(services)
+      ? services.includes(SPAY_NEUTER_SERVICE)
+      : services === SPAY_NEUTER_SERVICE;
+
+    if (
+      appointmentDate >= periodStart
+      && appointmentDate <= periodEnd
+      && status === COMPLETED_STATUS
+      && includesSpayNeuter
+    ) {
+      return total + catCount;
+    }
+
+    return total;
+  }, 0);
+
+  return {
+    catsFixedLastWeek,
+    periodStart,
+    periodEnd,
+    timeZone: REPORT_TIME_ZONE,
+    source: {
+      baseId: BASE_ID,
+      tableId: APPOINTMENT_TABLE_ID,
+      dateFieldId: APPOINTMENT_DATE_FIELD_ID,
+      countFieldId: APPOINTMENT_CAT_COUNT_FIELD_ID,
+      rule: "Sum Cats (Count) for completed appointments with Spay / Neuter service during the previous 7 completed calendar days",
+    },
+  };
 }
 
 function getEventAnimalId(event) {
@@ -385,17 +477,20 @@ function buildYearlyChart(records) {
 
 async function main() {
   const generatedAt = new Date().toISOString();
-  const [records, shelterluvEvents] = await Promise.all([
+  const [records, appointments, shelterluvEvents] = await Promise.all([
     listAllCats(),
+    listAllAppointments(),
     listAllShelterluvEvents(),
   ]);
   const updatedMetrics = buildMetrics(records, shelterluvEvents);
   const yearlyCatTypes = buildYearlyChart(records);
+  const spayNeuter = buildSpayNeuterWeeklyStat(appointments);
 
   const output = {
     generatedAt,
     pageName: "All Time--All Cities",
     metrics: updatedMetrics,
+    spayNeuter,
     charts: {
       yearlyCatTypes,
     },

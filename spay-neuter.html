@@ -1,0 +1,198 @@
+---
+layout: default
+title: Spay / Neuter Services | Bay Area Cats
+permalink: /spay-neuter
+description: Need a cat spayed or neutered in Santa Clara County? Bay Area Cats fixes 500+ cats a month. Submit our help form, we book the surgery for you, and you drop off and pick up at Petco Sunnyvale.
+keywords: spay neuter cat, cat spay appointment, cat neuter Santa Clara County, low cost spay neuter Sunnyvale, TNR Sunnyvale, TNR Cupertino, Mom's Last Litter, Bay Area Cats
+share_image: "/images/moms-last-litter.jpeg"
+share_image_type: "image/jpeg"
+---
+
+{% assign sn = site.data.spay_neuter %}
+{% assign sn_week = site.data.impact_stats.spayNeuter.catsFixedLastWeek %}
+{% assign sn_period = site.data.impact_stats.spayNeuter %}
+{% if sn_period.periodStart and sn_period.periodEnd %}
+  {% assign sn_start_month = sn_period.periodStart | date: "%b" %}
+  {% assign sn_end_month = sn_period.periodEnd | date: "%b" %}
+  {% if sn_start_month == sn_end_month %}
+    {% capture sn_week_range %}{{ sn_period.periodStart | date: "%b %-d" }} – {{ sn_period.periodEnd | date: "%-d" }}{% endcapture %}
+  {% else %}
+    {% capture sn_week_range %}{{ sn_period.periodStart | date: "%b %-d" }} – {{ sn_period.periodEnd | date: "%b %-d" }}{% endcapture %}
+  {% endif %}
+{% endif %}
+
+<section id="main" class="wrapper style1 sn-page">
+    <header class="major">
+        <h2>Spay / Neuter Services</h2>
+        <p><a href="#how-it-works">How it works</a> • <a href="#who-we-fix">Who we fix</a> • <a href="#request">Request an appointment</a></p>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero -->
+        <section class="sn-hero sn-hero-has-photo">
+            <div class="sn-hero-copy">
+            <p class="donate-kicker">Santa Clara County &amp; nearby</p>
+            <h3 class="sn-hero-title">Need a spay appointment? Submit our form. We'll book it for you.</h3>
+            <p class="sn-hero-lead">We fix <b>500+ cats every month</b>, pets and community cats. Tell us about your cat and we handle the scheduling. <b>Free if you need it.</b> If you can, we ask for a donation to cover the surgery.</p>
+            <p class="sn-hero-limit"><b>No limit on cats.</b> Whether you have 1 cat or 50, we'll help.</p>
+
+            <div class="petco-action-buttons">
+                <a class="petco-action-button sn-cta" href="#request">Request an appointment</a>
+                <a class="petco-action-button petco-action-button-alt" href="#who-we-fix">See who we fix</a>
+            </div>
+            </div>
+            <section class="special box home-link-card sn-hero-card">
+                <a class="home-link-card-image" href="#request">
+                    <img src="{{ site.baseurl }}{{ sn.transport_photo }}" alt="{{ sn.transport_photo_alt }}" />
+                </a>
+                {% if sn_week %}
+                <h4><span class="sn-card-number">{{ sn_week }}</span> cats fixed last week</h4>
+                {% if sn_week_range %}<p class="sn-card-dates">{{ sn_week_range }}</p>{% endif %}
+                {% else %}
+                <h4><span class="sn-card-number">500+</span> cats fixed every month</h4>
+                {% endif %}
+            </section>
+        </section>
+
+        <hr class="major" />
+
+        <!-- How it works -->
+        <section id="how-it-works">
+            <h3>How to get your cat fixed</h3>
+            <ol class="sn-steps">
+                <li class="sn-step">
+                    <span class="sn-step-number">1</span>
+                    <h4>Submit our help form</h4>
+                    <p>Fill out the form at <a href="#request">bayareacats.org/help</a>. It takes a few minutes.</p>
+                </li>
+                <li class="sn-step">
+                    <span class="sn-step-number">2</span>
+                    <h4>We contact you with dates</h4>
+                    <p>Our team reaches out with available dates and books the surgery for you.</p>
+                </li>
+                <li class="sn-step">
+                    <span class="sn-step-number">3</span>
+                    <h4>Drop off &amp; pick up at Petco Sunnyvale</h4>
+                    <p>Bring your cat to <a href="https://maps.app.goo.gl/PVgTBkW7ZN4S2bSG7" target="_blank" rel="noopener">160 E El Camino Real, Sunnyvale</a>. We'll confirm drop-off and pick-up times with you.</p>
+                </li>
+            </ol>
+        </section>
+
+        <hr class="major" />
+
+        <!-- Who we fix -->
+        <section id="who-we-fix">
+            <h3>Who we fix</h3>
+
+            <div class="sn-note">
+                <div class="sn-note-copy">
+                    <p class="sn-note-title">We're currently booking female cats.</p>
+                    <p><b>Males can come too when they're booked with a female.</b> A few ways to do that:</p>
+                    <ul>
+                        <li>Bring along a neighbor with a female cat</li>
+                        <li>Trap the mom cat that had the kittens</li>
+                        <li>Team up with a friend or family member who has a female pet</li>
+                    </ul>
+                </div>
+                <img class="sn-note-image" src="{{ site.baseurl }}/images/female-cats-illustration.png" alt="A mom cat watching her kittens play" />
+            </div>
+
+            <div class="sn-cards">
+                <section class="sn-card">
+                    <img class="sn-card-image" src="{{ site.baseurl }}/images/pet-kittens-trio.jpg" alt="Three fluffy kittens sitting on a blue cat bed" />
+                    <h4>Pet cats</h4>
+                    <ul>
+                        <li><b>Female pet cats</b> anywhere in Santa Clara County.</li>
+                        <li><b>Males</b> when booked together with a female.</li>
+                        <li><b>Mom's Last Litter (any city):</b> surrender friendly, pet kittens through us and we'll spay mom and every cat in the home, with vaccines and a microchip.</li>
+                        <li><b>Pregnant cats:</b> pet, stray, or trapped, anywhere in the Bay Area.</li>
+                    </ul>
+                </section>
+                <section class="sn-card">
+                    <img class="sn-card-image" src="{{ site.baseurl }}/images/tnr-traps.jpg" alt="Community cats in humane traps, eating before their TNR appointment" />
+                    <h4>Stray &amp; community cats</h4>
+                    <ul>
+                        <li><b>Friendly, handleable</b> stray cats and kittens</li>
+                        <li><b>Pregnant feral or stray cats</b> that have already been trapped</li>
+                        <li><b>Additional hands-on support</b> in Sunnyvale, Cupertino, and ZIP code 95127</li>
+                        <li><b>Occasional TNR clinics</b> in other areas when donations allow</li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <section class="sn-support">
+            <div class="sn-support-copy">
+                <p class="donate-kicker">How this is paid for</p>
+                <h3>Run by volunteers. Funded by donations.</h3>
+                <p>Bay Area Cats is 100% volunteer-run, and every surgery we book is paid for by donations. We keep it free for anyone who needs it, but we can't sustain free for everyone. If you're able, please donate to cover your cat's surgery or help fund a TNR clinic for a whole colony.</p>
+            </div>
+            <a class="petco-action-button sn-donate" href="{{ site.baseurl }}/donate">Donate to fix a cat</a>
+        </section>
+
+        <hr class="major" />
+
+        <!-- Request form -->
+        <section id="request">
+            <h3>Request an appointment</h3>
+            <p>Tell us about your cat or the cats you're caring for. We'll follow up with dates. Questions? Email <a href="mailto:info@bayareacats.org">info@bayareacats.org</a>.</p>
+            <iframe class="contact-request-form" data-tally-src="https://tally.so/embed/GxdMqz?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1800" frameborder="0" marginheight="0" marginwidth="0" title="Request a spay/neuter appointment"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </section>
+
+    </div>
+</section>
+
+<script>
+(function () {
+  document.querySelectorAll('.sn-donate').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        gtag('event', 'spay_neuter_donate_click', { event_category: 'spay_neuter' });
+      }
+    });
+  });
+  document.querySelectorAll('.sn-cta').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        gtag('event', 'spay_neuter_request_click', { event_category: 'spay_neuter' });
+      }
+    });
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Cat Spay / Neuter Services",
+  "serviceType": "Cat spay and neuter",
+  "provider": {
+    "@type": "NGO",
+    "name": "Bay Area Cats",
+    "url": "https://bayareacats.org",
+    "email": "info@bayareacats.org"
+  },
+  "areaServed": ["Santa Clara County, CA", "Sunnyvale, CA", "Cupertino, CA", "San Jose, CA", "San Francisco Bay Area"],
+  "description": "Bay Area Cats fixes 500+ cats a month with no limit on the number of cats per household or colony, including female pet cats, males booked with a female, Mom's Last Litter pets in any city, and stray and community cats through TNR. Submit the help form, we schedule the surgery, and you drop off and pick up at Petco Sunnyvale.",
+  "url": "https://bayareacats.org/spay-neuter",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://bayareacats.org/help",
+    "serviceLocation": {
+      "@type": "Place",
+      "name": "Bay Area Cats at Petco Sunnyvale",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "160 E El Camino Real",
+        "addressLocality": "Sunnyvale",
+        "addressRegion": "CA",
+        "postalCode": "94087",
+        "addressCountry": "US"
+      }
+    }
+  }
+}
+</script>

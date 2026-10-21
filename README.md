@@ -8,6 +8,7 @@ Impact numbers and charts on the homepage are generated from Airtable, then rend
 
 - The headline stats use the Airtable `Analysis` interface dashboard elements.
 - The yearly stacked chart is grouped from Cats table fields `Appt/Trap Year` and `Cat Type`.
+- The spay/neuter page's weekly total sums `Cats (Count)` for completed Airtable appointments that include the `Spay / Neuter` service during the previous seven completed calendar days in Pacific time.
 - The adoption count comes from Shelterluv events, counting animals whose latest event is `Outcome.Adoption`.
 
 To update locally:

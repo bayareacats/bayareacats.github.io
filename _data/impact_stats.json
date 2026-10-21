@@ -61,6 +61,19 @@
       }
     }
   ],
+  "spayNeuter": {
+    "catsFixedLastWeek": 135,
+    "periodStart": "2026-10-13",
+    "periodEnd": "2026-10-19",
+    "timeZone": "America/Los_Angeles",
+    "source": {
+      "baseId": "appklgrXgkT9hR2Ts",
+      "tableId": "tblOOJuOihxinb4K3",
+      "dateFieldId": "fldp6Qhsgn7h17CvC",
+      "countFieldId": "fldcpjnUta0CF8TPN",
+      "rule": "Sum Cats (Count) for completed appointments with Spay / Neuter service during the previous 7 completed calendar days"
+    }
+  },
   "charts": {
     "yearlyCatTypes": {
       "title": "Cats Assisted Per Year",

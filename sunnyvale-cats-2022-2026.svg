@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-labelledby="title desc">
+  <title id="title">Sunnyvale Cats 2022–2026</title>
+  <desc id="desc">Stacked bar chart showing Shelter Intake and TNR totals from 2022 through June 2026.</desc>
+  <defs>
+    <filter id="panel-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.09"/>
+    </filter>
+    <clipPath id="bar-2022"><rect x="254" y="280" width="164" height="506" rx="9"/></clipPath>
+    <clipPath id="bar-2023"><rect x="531" y="337" width="161" height="449" rx="9"/></clipPath>
+    <clipPath id="bar-2024"><rect x="800" y="470" width="160" height="316" rx="9"/></clipPath>
+    <clipPath id="bar-2025"><rect x="1067" y="615" width="153" height="171" rx="9"/></clipPath>
+    <clipPath id="bar-2026"><rect x="1330" y="750" width="159" height="36" rx="9"/></clipPath>
+    <style>
+      .title { font-family: Quicksand, "Quicksand Bold", sans-serif; font-size: 70px; font-weight: 700; fill: #001D33; }
+      .axis, .year, .legend { font-family: Arial, Helvetica, sans-serif; fill: #111111; }
+      .axis { font-size: 31px; }
+      .year { font-size: 31px; }
+      .legend { font-size: 31px; }
+      .total { font-family: Arial, Helvetica, sans-serif; font-size: 32px; font-weight: 700; fill: #080808; }
+      .grid { stroke: #C9CDD2; stroke-width: 2; stroke-dasharray: 7 4; }
+    </style>
+  </defs>
+
+  <rect width="1672" height="941" fill="#FFFFFF"/>
+  <text class="title" x="96" y="136">Sunnyvale Cats 2022–2026</text>
+
+  <rect x="48" y="214" width="1576" height="693" rx="31" fill="#FFFFFF" filter="url(#panel-shadow)"/>
+
+  <g aria-label="gridlines">
+    <line class="grid" x1="162" y1="614" x2="1576" y2="614"/>
+    <line class="grid" x1="162" y1="443" x2="1576" y2="443"/>
+    <line class="grid" x1="162" y1="272" x2="1576" y2="272"/>
+  </g>
+
+  <g aria-label="y axis labels" text-anchor="end">
+    <text class="axis" x="145" y="794">0</text>
+    <text class="axis" x="145" y="624">500</text>
+    <text class="axis" x="145" y="453">1000</text>
+    <text class="axis" x="145" y="282">1500</text>
+  </g>
+
+  <g aria-label="stacked bars">
+    <g clip-path="url(#bar-2022)">
+      <rect x="254" y="374" width="164" height="412" fill="#3559A3"/>
+      <rect x="254" y="280" width="164" height="94" fill="#4395A5"/>
+    </g>
+    <g clip-path="url(#bar-2023)">
+      <rect x="531" y="416" width="161" height="370" fill="#3559A3"/>
+      <rect x="531" y="337" width="161" height="79" fill="#4395A5"/>
+    </g>
+    <g clip-path="url(#bar-2024)">
+      <rect x="800" y="524" width="160" height="262" fill="#3559A3"/>
+      <rect x="800" y="470" width="160" height="54" fill="#4395A5"/>
+    </g>
+    <g clip-path="url(#bar-2025)">
+      <rect x="1067" y="662" width="153" height="124" fill="#3559A3"/>
+      <rect x="1067" y="615" width="153" height="47" fill="#4395A5"/>
+    </g>
+    <g clip-path="url(#bar-2026)">
+      <rect x="1330" y="768" width="159" height="18" fill="#3559A3"/>
+      <rect x="1330" y="750" width="159" height="18" fill="#4395A5"/>
+    </g>
+  </g>
+
+  <line x1="162" y1="786" x2="1576" y2="786" stroke="#083E70" stroke-width="3"/>
+
+  <g aria-label="totals" text-anchor="middle">
+    <text class="total" x="336" y="265">1,486</text>
+    <text class="total" x="612" y="322">1,318</text>
+    <text class="total" x="880" y="449">915</text>
+    <text class="total" x="1144" y="594">495</text>
+    <text class="total" x="1410" y="737">87</text>
+  </g>
+
+  <g aria-label="x axis labels" text-anchor="middle">
+    <text class="year" x="336" y="824">2022</text>
+    <text class="year" x="612" y="824">2023</text>
+    <text class="year" x="880" y="824">2024</text>
+    <text class="year" x="1144" y="824">2025</text>
+    <text class="year" x="1410" y="824">2026 Jan–Jun</text>
+  </g>
+
+  <g aria-label="legend">
+    <rect x="589" y="849" width="38" height="33" rx="8" fill="#3559A3"/>
+    <text class="legend" x="646" y="878">Shelter Intake</text>
+    <rect x="908" y="849" width="38" height="33" rx="8" fill="#4395A5"/>
+    <text class="legend" x="966" y="878">TNR</text>
+  </g>
+</svg>
