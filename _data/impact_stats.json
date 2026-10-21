@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-20T18:51:28.616Z",
+  "generatedAt": "2026-10-21T19:03:34.115Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 9714,
+      "value": 9765,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 4360,
+      "value": 4404,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2552,
+      "value": 2559,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1408,
+      "value": 1411,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -62,9 +62,9 @@
     }
   ],
   "spayNeuter": {
-    "catsFixedLastWeek": 135,
-    "periodStart": "2026-10-13",
-    "periodEnd": "2026-10-19",
+    "catsFixedLastWeek": 113,
+    "periodStart": "2026-10-14",
+    "periodEnd": "2026-10-20",
     "timeZone": "America/Los_Angeles",
     "source": {
       "baseId": "appklgrXgkT9hR2Ts",
@@ -233,27 +233,27 @@
         },
         {
           "year": 2026,
-          "total": 4388,
+          "total": 4439,
           "segments": {
             "tnr": {
-              "value": 1337,
-              "height": 29.71111111111111
+              "value": 1381,
+              "height": 30.688888888888886
             },
             "rescued": {
               "value": 1505,
               "height": 33.44444444444444
             },
             "pet_spay_neuter": {
-              "value": 1506,
-              "height": 33.46666666666667
+              "value": 1513,
+              "height": 33.62222222222222
             },
             "other_service": {
               "value": 40,
               "height": 0.8888888888888888
             }
           },
-          "label": "4.388k",
-          "height": 97.51111111111112
+          "label": "4.439k",
+          "height": 98.64444444444445
         }
       ]
     }
