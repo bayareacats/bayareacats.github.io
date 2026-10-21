@@ -1,6 +1,0 @@
-# Spay / Neuter page settings
-# The weekly total is generated automatically in _data/impact_stats.json.
-
-# Photo shown in the card next to the headline.
-transport_photo: /images/spay-transport.jpg
-transport_photo_alt: Cats in labeled carriers waiting for their spay/neuter surgeries

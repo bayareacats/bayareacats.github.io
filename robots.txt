@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /robots.txt
+---
+# Search engines and AI assistants are welcome to index this site.
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.url | default: "https://bayareacats.org" }}/sitemap.xml

@@ -1,14 +1,13 @@
 ---
 layout: default
-title: Spay / Neuter Services | Bay Area Cats
+title: Free & Low-Cost Cat Spay / Neuter | Bay Area Cats
 permalink: /spay-neuter
-description: Need a cat spayed or neutered in Santa Clara County? Bay Area Cats fixes 500+ cats a month. Submit our help form, we book the surgery for you, and you drop off and pick up at Petco Sunnyvale.
-keywords: spay neuter cat, cat spay appointment, cat neuter Santa Clara County, low cost spay neuter Sunnyvale, TNR Sunnyvale, TNR Cupertino, Mom's Last Litter, Bay Area Cats
+description: Free or low-cost cat spay/neuter in Santa Clara County. Bay Area Cats fixes 500+ cats a month, pets and community cats, with no limit on cats. Submit our form, we book the surgery, and you drop off and pick up at Petco Sunnyvale.
+keywords: free cat spay, free cat neuter, low cost spay neuter, low income cat spay, free spay neuter for homeless pet owners, cat spay Santa Clara County, cat spay San Jose, cat spay Sunnyvale, TNR Sunnyvale, TNR Cupertino, TNR San Jose 95127, Mom's Last Litter, Bay Area Cats
 share_image: "/images/moms-last-litter.jpeg"
 share_image_type: "image/jpeg"
 ---
 
-{% assign sn = site.data.spay_neuter %}
 {% assign sn_week = site.data.impact_stats.spayNeuter.catsFixedLastWeek %}
 {% assign sn_period = site.data.impact_stats.spayNeuter %}
 {% if sn_period.periodStart and sn_period.periodEnd %}
@@ -44,7 +43,7 @@ share_image_type: "image/jpeg"
             </div>
             <section class="special box home-link-card sn-hero-card">
                 <a class="home-link-card-image" href="#request">
-                    <img src="{{ site.baseurl }}{{ sn.transport_photo }}" alt="{{ sn.transport_photo_alt }}" />
+                    <img src="{{ site.baseurl }}/images/gray-kittens-card.jpg" alt="Two gray tabby kittens looking up at the camera" />
                 </a>
                 {% if sn_week %}
                 <h4><span class="sn-card-number">{{ sn_week }}</span> cats fixed last week</h4>
@@ -100,7 +99,7 @@ share_image_type: "image/jpeg"
 
             <div class="sn-cards">
                 <section class="sn-card">
-                    <img class="sn-card-image" src="{{ site.baseurl }}/images/pet-kittens-trio.jpg" alt="Three fluffy kittens sitting on a blue cat bed" />
+                    <img class="sn-card-image" src="{{ site.baseurl }}/images/pet-cat-photo.jpg" alt="A gray kitten walking toward the camera with its tail up" />
                     <h4>Pet cats</h4>
                     <ul>
                         <li><b>Female pet cats</b> anywhere in Santa Clara County.</li>
@@ -110,7 +109,7 @@ share_image_type: "image/jpeg"
                     </ul>
                 </section>
                 <section class="sn-card">
-                    <img class="sn-card-image" src="{{ site.baseurl }}/images/tnr-traps.jpg" alt="Community cats in humane traps, eating before their TNR appointment" />
+                    <img class="sn-card-image" src="{{ site.baseurl }}/images/tnr-trapped-cats.jpg" alt="Community cats in humane traps, eating before their TNR appointment" />
                     <h4>Stray &amp; community cats</h4>
                     <ul>
                         <li><b>Friendly, handleable</b> stray cats and kittens</li>
@@ -122,6 +121,47 @@ share_image_type: "image/jpeg"
             </div>
         </section>
 
+{% comment %} FAQ hidden for now. Remove this comment wrapper (and the one around the FAQ structured data at the bottom) to bring it back.
+        <hr class="major" />
+
+        <!-- FAQ -->
+        <section id="faq" class="sn-faq">
+            <h3>Questions</h3>
+                <details class="sn-faq-item">
+                    <summary>How much does it cost?</summary>
+                    <p>Free if you need it. If you can, we ask for a donation to cover the surgery. We're 100% volunteer-run and every surgery is paid for by donations, so we can't keep it free for everyone.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>Can I get help if I'm low-income or unhoused?</summary>
+                    <p>Yes. We help pet owners regardless of income or housing, including low-income and unhoused families. Tell us your situation on the form.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>How do I book a spay/neuter appointment?</summary>
+                    <p>Fill out our help form at bayareacats.org/help. Our team contacts you with available dates and books the surgery for you. You don't need to call a vet.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>Where do I drop off my cat?</summary>
+                    <p>Drop off and pick up are at Petco Sunnyvale, 160 E El Camino Real, Sunnyvale, CA 94087. We confirm times with you when we book.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>Do you fix male cats?</summary>
+                    <p>We're currently booking female cats. Males can come too when they're booked with a female: bring along a neighbor with a female cat, trap the mom cat, or team up with a friend or family member who has a female pet.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>Is there a limit on how many cats I can bring?</summary>
+                    <p>No. Whether you have 1 cat or 50, we'll help.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>Do you help with stray, feral, or community cats?</summary>
+                    <p>Yes. We help with friendly, handleable stray cats and kittens, and pregnant feral or stray cats that have already been trapped. We offer additional hands-on support in Sunnyvale, Cupertino, and ZIP code 95127, and run occasional TNR clinics in other areas when donations allow.</p>
+                </details>
+                <details class="sn-faq-item">
+                    <summary>What areas do you serve?</summary>
+                    <p>Female pet cats anywhere in Santa Clara County. Our Mom's Last Litter program is open to any city: surrender friendly, pet kittens through us and we'll spay mom and every cat in the home.</p>
+                </details>
+        </section>
+
+{% endcomment %}
         <section class="sn-support">
             <div class="sn-support-copy">
                 <p class="donate-kicker">How this is paid for</p>
@@ -167,16 +207,24 @@ share_image_type: "image/jpeg"
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Cat Spay / Neuter Services",
+  "name": "Free and Low-Cost Cat Spay / Neuter",
   "serviceType": "Cat spay and neuter",
   "provider": {
     "@type": "NGO",
     "name": "Bay Area Cats",
     "url": "https://bayareacats.org",
-    "email": "info@bayareacats.org"
+    "email": "info@bayareacats.org",
+    "description": "100% volunteer-run, donation-funded 501(c)(3) cat rescue in Sunnyvale, CA."
   },
-  "areaServed": ["Santa Clara County, CA", "Sunnyvale, CA", "Cupertino, CA", "San Jose, CA", "San Francisco Bay Area"],
-  "description": "Bay Area Cats fixes 500+ cats a month with no limit on the number of cats per household or colony, including female pet cats, males booked with a female, Mom's Last Litter pets in any city, and stray and community cats through TNR. Submit the help form, we schedule the surgery, and you drop off and pick up at Petco Sunnyvale.",
+  "areaServed": [
+    "Santa Clara County, CA",
+    "Sunnyvale, CA",
+    "Cupertino, CA",
+    "San Jose, CA",
+    "95127",
+    "San Francisco Bay Area"
+  ],
+  "description": "Bay Area Cats fixes 500+ cats a month in Santa Clara County. Free for pet owners who need it, including low-income and unhoused families; otherwise we ask for a donation to cover the surgery. No limit on the number of cats. We book female pet cats (males booked with a female), Mom's Last Litter pets in any city, friendly strays, and pregnant trapped strays, with hands-on TNR support in Sunnyvale, Cupertino, and ZIP code 95127. Submit the help form, we schedule the surgery, and you drop off and pick up at Petco Sunnyvale.",
   "url": "https://bayareacats.org/spay-neuter",
   "availableChannel": {
     "@type": "ServiceChannel",
@@ -193,6 +241,91 @@ share_image_type: "image/jpeg"
         "addressCountry": "US"
       }
     }
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Cat owners and caretakers, including low-income and unhoused pet owners"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free if you need it. Donations requested from those who can afford to cover the surgery."
   }
 }
 </script>
+
+{% comment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free if you need it. If you can, we ask for a donation to cover the surgery. We're 100% volunteer-run and every surgery is paid for by donations, so we can't keep it free for everyone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get help if I'm low-income or unhoused?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We help pet owners regardless of income or housing, including low-income and unhoused families. Tell us your situation on the form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book a spay/neuter appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fill out our help form at bayareacats.org/help. Our team contacts you with available dates and books the surgery for you. You don't need to call a vet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I drop off my cat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drop off and pick up are at Petco Sunnyvale, 160 E El Camino Real, Sunnyvale, CA 94087. We confirm times with you when we book."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you fix male cats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're currently booking female cats. Males can come too when they're booked with a female: bring along a neighbor with a female cat, trap the mom cat, or team up with a friend or family member who has a female pet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on how many cats I can bring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Whether you have 1 cat or 50, we'll help."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help with stray, feral, or community cats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We help with friendly, handleable stray cats and kittens, and pregnant feral or stray cats that have already been trapped. We offer additional hands-on support in Sunnyvale, Cupertino, and ZIP code 95127, and run occasional TNR clinics in other areas when donations allow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Female pet cats anywhere in Santa Clara County. Our Mom's Last Litter program is open to any city: surrender friendly, pet kittens through us and we'll spay mom and every cat in the home."
+      }
+    }
+  ]
+}
+</script>
+{% endcomment %}

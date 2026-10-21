@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign site_url = site.url | default: "https://bayareacats.org" -%}
+{%- for page in site.pages -%}
+  {%- if page.redirect_url or page.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- unless page.url == "/" or page.url contains ".html" or page.url == "/spay-neuter" -%}{%- continue -%}{%- endunless -%}
+  {%- if page.url contains "404" or page.url contains "givebutter-test" -%}{%- continue -%}{%- endif -%}
+  {%- assign path = page.url | replace: "/index.html", "/" | replace: ".html", "" %}
+  <url>
+    <loc>{{ site_url }}{{ path }}</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+{%- endfor %}
+</urlset>
