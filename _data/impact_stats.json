@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-21T19:03:34.115Z",
+  "generatedAt": "2026-10-22T19:00:00.872Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 9765,
+      "value": 9797,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2691,
+      "value": 2686,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2559,
+      "value": 2596,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -62,9 +62,9 @@
     }
   ],
   "spayNeuter": {
-    "catsFixedLastWeek": 113,
-    "periodStart": "2026-10-14",
-    "periodEnd": "2026-10-20",
+    "catsFixedLastWeek": 147,
+    "periodStart": "2026-10-15",
+    "periodEnd": "2026-10-21",
     "timeZone": "America/Los_Angeles",
     "source": {
       "baseId": "appklgrXgkT9hR2Ts",
@@ -233,27 +233,27 @@
         },
         {
           "year": 2026,
-          "total": 4439,
+          "total": 4471,
           "segments": {
             "tnr": {
               "value": 1381,
               "height": 30.688888888888886
             },
             "rescued": {
-              "value": 1505,
-              "height": 33.44444444444444
+              "value": 1500,
+              "height": 33.33333333333333
             },
             "pet_spay_neuter": {
-              "value": 1513,
-              "height": 33.62222222222222
+              "value": 1550,
+              "height": 34.44444444444444
             },
             "other_service": {
               "value": 40,
               "height": 0.8888888888888888
             }
           },
-          "label": "4.439k",
-          "height": 98.64444444444445
+          "label": "4.471k",
+          "height": 99.35555555555555
         }
       ]
     }
