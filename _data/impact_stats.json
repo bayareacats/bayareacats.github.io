@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T19:00:00.872Z",
+  "generatedAt": "2026-10-23T18:49:19.662Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1411,
+      "value": 1413,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -62,9 +62,9 @@
     }
   ],
   "spayNeuter": {
-    "catsFixedLastWeek": 147,
-    "periodStart": "2026-10-15",
-    "periodEnd": "2026-10-21",
+    "catsFixedLastWeek": 127,
+    "periodStart": "2026-10-16",
+    "periodEnd": "2026-10-22",
     "timeZone": "America/Los_Angeles",
     "source": {
       "baseId": "appklgrXgkT9hR2Ts",
