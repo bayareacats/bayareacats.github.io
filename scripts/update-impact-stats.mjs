@@ -24,7 +24,7 @@ const APPOINTMENT_DATE_FIELD_ID = "fldp6Qhsgn7h17CvC";
 const APPOINTMENT_STATUS_FIELD_ID = "fldtkmgmeSxNIFfNc";
 const APPOINTMENT_SERVICES_FIELD_ID = "fldyDhtD3gBqH4kA0";
 const APPOINTMENT_CAT_COUNT_FIELD_ID = "fldcpjnUta0CF8TPN";
-const COMPLETED_STATUS = "Completed";
+const COUNTED_APPOINTMENT_STATUSES = new Set(["Scheduled", "Completed"]);
 const SPAY_NEUTER_SERVICE = "Spay / Neuter";
 const REPORT_TIME_ZONE = "America/Los_Angeles";
 const CHART_START_YEAR = 2022;
@@ -270,8 +270,9 @@ function shiftIsoDate(isoDate, days) {
 
 function buildSpayNeuterWeeklyStat(records, now = new Date()) {
   const today = getIsoDateInTimeZone(now, REPORT_TIME_ZONE);
-  const periodStart = shiftIsoDate(today, -7);
-  const periodEnd = shiftIsoDate(today, -1);
+  const todayDayOfWeek = new Date(`${today}T12:00:00Z`).getUTCDay();
+  const periodEnd = shiftIsoDate(today, -(todayDayOfWeek + 1));
+  const periodStart = shiftIsoDate(periodEnd, -6);
 
   const catsFixedLastWeek = records.reduce((total, record) => {
     const values = record.cellValuesByFieldId || {};
@@ -286,7 +287,7 @@ function buildSpayNeuterWeeklyStat(records, now = new Date()) {
     if (
       appointmentDate >= periodStart
       && appointmentDate <= periodEnd
-      && status === COMPLETED_STATUS
+      && COUNTED_APPOINTMENT_STATUSES.has(status)
       && includesSpayNeuter
     ) {
       return total + catCount;
@@ -305,7 +306,7 @@ function buildSpayNeuterWeeklyStat(records, now = new Date()) {
       tableId: APPOINTMENT_TABLE_ID,
       dateFieldId: APPOINTMENT_DATE_FIELD_ID,
       countFieldId: APPOINTMENT_CAT_COUNT_FIELD_ID,
-      rule: "Sum Cats (Count) for completed appointments with Spay / Neuter service during the previous 7 completed calendar days",
+      rule: "Sum Cats (Count) for scheduled or completed appointments with Spay / Neuter service during the most recently completed Sunday-Saturday week",
     },
   };
 }

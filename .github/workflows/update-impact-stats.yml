@@ -3,7 +3,8 @@ name: Update impact stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * *"
+    # Sundays at 7am PST / 8am PDT, after the Saturday reporting week closes.
+    - cron: "0 15 * * 0"
 
 permissions:
   contents: write
