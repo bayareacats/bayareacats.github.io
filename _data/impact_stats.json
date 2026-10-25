@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-23T18:49:19.662Z",
+  "generatedAt": "2026-10-25T17:55:44.328Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 9797,
+      "value": 9863,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 4404,
+      "value": 4425,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2686,
+      "value": 2708,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2596,
+      "value": 2630,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1413,
+      "value": 1421,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -62,9 +62,9 @@
     }
   ],
   "spayNeuter": {
-    "catsFixedLastWeek": 111,
-    "periodStart": "2026-10-11",
-    "periodEnd": "2026-10-17",
+    "catsFixedLastWeek": 148,
+    "periodStart": "2026-10-18",
+    "periodEnd": "2026-10-24",
     "timeZone": "America/Los_Angeles",
     "source": {
       "baseId": "appklgrXgkT9hR2Ts",
@@ -77,8 +77,12 @@
   "charts": {
     "yearlyCatTypes": {
       "title": "Cats Assisted Per Year",
-      "maxValue": 4500,
+      "maxValue": 5000,
       "yAxis": [
+        {
+          "value": 4500,
+          "label": "4.5k"
+        },
         {
           "value": 4000,
           "label": "4k"
@@ -141,23 +145,23 @@
           "segments": {
             "tnr": {
               "value": 431,
-              "height": 9.577777777777778
+              "height": 8.62
             },
             "rescued": {
               "value": 225,
-              "height": 5
+              "height": 4.5
             },
             "pet_spay_neuter": {
               "value": 6,
-              "height": 0.13333333333333333
+              "height": 0.12
             },
             "other_service": {
               "value": 5,
-              "height": 0.1111111111111111
+              "height": 0.1
             }
           },
           "label": "667",
-          "height": 14.822222222222223
+          "height": 13.34
         },
         {
           "year": 2023,
@@ -165,23 +169,23 @@
           "segments": {
             "tnr": {
               "value": 501,
-              "height": 11.133333333333335
+              "height": 10.02
             },
             "rescued": {
               "value": 237,
-              "height": 5.266666666666667
+              "height": 4.74
             },
             "pet_spay_neuter": {
               "value": 232,
-              "height": 5.155555555555556
+              "height": 4.64
             },
             "other_service": {
               "value": 24,
-              "height": 0.5333333333333333
+              "height": 0.48
             }
           },
           "label": "994",
-          "height": 22.08888888888889
+          "height": 19.88
         },
         {
           "year": 2024,
@@ -189,23 +193,23 @@
           "segments": {
             "tnr": {
               "value": 754,
-              "height": 16.755555555555556
+              "height": 15.079999999999998
             },
             "rescued": {
               "value": 120,
-              "height": 2.666666666666667
+              "height": 2.4
             },
             "pet_spay_neuter": {
               "value": 167,
-              "height": 3.711111111111111
+              "height": 3.34
             },
             "other_service": {
               "value": 9,
-              "height": 0.2
+              "height": 0.18
             }
           },
           "label": "1.05k",
-          "height": 23.333333333333332
+          "height": 21
         },
         {
           "year": 2025,
@@ -213,47 +217,47 @@
           "segments": {
             "tnr": {
               "value": 1337,
-              "height": 29.71111111111111
+              "height": 26.740000000000002
             },
             "rescued": {
               "value": 604,
-              "height": 13.42222222222222
+              "height": 12.08
             },
             "pet_spay_neuter": {
               "value": 641,
-              "height": 14.244444444444445
+              "height": 12.82
             },
             "other_service": {
               "value": 33,
-              "height": 0.7333333333333333
+              "height": 0.66
             }
           },
           "label": "2.615k",
-          "height": 58.111111111111114
+          "height": 52.300000000000004
         },
         {
           "year": 2026,
-          "total": 4471,
+          "total": 4537,
           "segments": {
             "tnr": {
-              "value": 1381,
-              "height": 30.688888888888886
+              "value": 1402,
+              "height": 28.04
             },
             "rescued": {
-              "value": 1500,
-              "height": 33.33333333333333
+              "value": 1522,
+              "height": 30.44
             },
             "pet_spay_neuter": {
-              "value": 1550,
-              "height": 34.44444444444444
+              "value": 1584,
+              "height": 31.680000000000003
             },
             "other_service": {
-              "value": 40,
-              "height": 0.8888888888888888
+              "value": 29,
+              "height": 0.58
             }
           },
-          "label": "4.471k",
-          "height": 99.35555555555555
+          "label": "4.537k",
+          "height": 90.74
         }
       ]
     }
