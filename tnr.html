@@ -1,11 +1,17 @@
 ---
-layout: default
+layout: null
 title: Workshop | Bay Area Cats
 permalink: /tnr
 redirect_url: https://airtable.com/appklgrXgkT9hR2Ts/pagwRmw0vlpDyul7G/form
-gtag_event_name: workshop
 ---
-
-<noscript>
-  <meta http-equiv="refresh" content="0; url=https://airtable.com/appklgrXgkT9hR2Ts/pagwRmw0vlpDyul7G/form">
-</noscript>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_url }}">
+  <title>{{ page.title }}</title>
+</head>
+<body>
+  <a href="{{ page.redirect_url }}">Open the TNR workshop form</a>
+</body>
+</html>
