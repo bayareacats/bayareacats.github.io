@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-08T19:13:20.672Z",
+  "generatedAt": "2026-11-15T20:00:20.161Z",
   "pageName": "All Time--All Cities",
   "metrics": [
     {
       "key": "cats_assisted",
       "label": "Cats Assisted",
-      "value": 10125,
+      "value": 10245,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -17,7 +17,7 @@
     {
       "key": "tnr_cats",
       "label": "TNR Cats",
-      "value": 4531,
+      "value": 4572,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -29,7 +29,7 @@
     {
       "key": "rescued",
       "label": "Cats / Kittens Rescued",
-      "value": 2751,
+      "value": 2767,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -41,7 +41,7 @@
     {
       "key": "pets_fixed",
       "label": "Pets Fixed",
-      "value": 2739,
+      "value": 2795,
       "source": {
         "baseId": "appklgrXgkT9hR2Ts",
         "interfaceId": "pbd0Wf6B070Uofn2i",
@@ -53,7 +53,7 @@
     {
       "key": "adoptions",
       "label": "Adoptions",
-      "value": 1459,
+      "value": 1479,
       "source": {
         "api": "Shelterluv",
         "endpoint": "/api/v1/events",
@@ -62,9 +62,9 @@
     }
   ],
   "spayNeuter": {
-    "catsFixedLastWeek": 97,
-    "periodStart": "2026-11-01",
-    "periodEnd": "2026-11-07",
+    "catsFixedLastWeek": 130,
+    "periodStart": "2026-11-08",
+    "periodEnd": "2026-11-14",
     "timeZone": "America/Los_Angeles",
     "source": {
       "baseId": "appklgrXgkT9hR2Ts",
@@ -237,27 +237,27 @@
         },
         {
           "year": 2026,
-          "total": 4801,
+          "total": 4921,
           "segments": {
             "tnr": {
-              "value": 1508,
-              "height": 30.159999999999997
+              "value": 1549,
+              "height": 30.98
             },
             "rescued": {
-              "value": 1567,
-              "height": 31.34
+              "value": 1583,
+              "height": 31.66
             },
             "pet_spay_neuter": {
-              "value": 1693,
-              "height": 33.86
+              "value": 1749,
+              "height": 34.98
             },
             "other_service": {
-              "value": 33,
-              "height": 0.66
+              "value": 40,
+              "height": 0.8
             }
           },
-          "label": "4.801k",
-          "height": 96.02000000000001
+          "label": "4.921k",
+          "height": 98.42
         }
       ]
     }
