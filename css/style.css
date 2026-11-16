@@ -3154,3 +3154,71 @@ a.vol-card:hover .vol-card-link span {
 #hold.sn-support {
   margin-bottom: 3rem;
 }
+
+/* Volunteer application pop-up (matches the TNR workshop pop-up) */
+.vol-apply-dialog {
+  box-sizing: border-box;
+  width: min(96vw, 1100px);
+  height: 94vh;
+  height: 94dvh;
+  max-height: 94vh;
+  padding: 1.5em;
+  border: 0;
+  border-radius: 0.4em;
+  box-shadow: 0 1em 3em rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+.vol-apply-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.vol-apply-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+.vol-apply-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.vol-apply-dialog-header h3 {
+  margin: 0;
+}
+.vol-apply-close {
+  flex: 0 0 auto;
+  min-width: 2.25em;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.75em;
+  line-height: 1.25;
+  cursor: pointer;
+}
+.vol-apply-dialog .vol-apply-frame {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  border: 1px solid #ccc;
+  background: transparent;
+}
+.vol-apply-dialog .vol-apply-fallback {
+  margin: 0.6em 0 0;
+  font-size: 0.9em;
+}
+@media screen and (max-width: 736px) {
+  .vol-apply-dialog {
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0.75em;
+    border-radius: 0;
+  }
+  .vol-apply-dialog-header {
+    margin-bottom: 0.75em;
+  }
+}

@@ -76,14 +76,53 @@ share_image_type: "image/jpeg"
     </div>
 </section>
 
+<dialog id="vol-apply-dialog" class="vol-apply-dialog" aria-labelledby="vol-apply-title">
+    <div class="vol-apply-dialog-header">
+        <h3 id="vol-apply-title">Volunteer application</h3>
+        <button type="button" class="vol-apply-close" aria-label="Close volunteer application">&times;</button>
+    </div>
+    <iframe class="vol-apply-frame" data-src="{{ apply_url }}" title="Bay Area Cats volunteer application" frameborder="0" width="100%"></iframe>
+    <p class="vol-apply-fallback">Form not loading? <a href="{{ apply_url }}" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+</dialog>
+
 <script>
 (function () {
+  var dialog = document.getElementById('vol-apply-dialog');
+  var frame = dialog.querySelector('.vol-apply-frame');
+  var closeButton = dialog.querySelector('.vol-apply-close');
+  var scrollPosition = 0;
+  var canModal = typeof dialog.showModal === 'function';
+
+  function openDialog() {
+    if (!frame.src) frame.src = frame.dataset.src;
+    scrollPosition = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + scrollPosition + 'px';
+    document.body.style.width = '100%';
+    dialog.showModal();
+  }
+
   document.querySelectorAll('.vol-apply').forEach(function (btn) {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (event) {
       if (typeof window.gtag === 'function') {
         gtag('event', 'volunteer_application', { event_category: 'volunteer' });
       }
+      // Let cmd/ctrl/shift-clicks open the form in a new tab as usual.
+      if (!canModal || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+      event.preventDefault();
+      openDialog();
     });
+  });
+
+  closeButton.addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', function () {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
   });
 })();
 </script>
