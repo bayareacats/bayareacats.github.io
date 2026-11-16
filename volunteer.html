@@ -2,18 +2,88 @@
 layout: default
 title: Volunteer | Bay Area Cats
 permalink: /volunteer
-redirect_url: https://www.volgistics.com/appform/1521237589
-gtag_event_name: volunteer_application
+description: Volunteer with Bay Area Cats, a 100% volunteer-run cat rescue in Sunnyvale. Help at our adoption center, spay/neuter handoffs, Spanish interpretation, driving, cleaning, and intake.
+share_image: "/images/volunteer-team.jpg"
+share_image_type: "image/jpeg"
 ---
 
-<!-- <main class="page-content" aria-labelledby="flyer-download-title">
-  <div class="wrapper">
-    <h1 id="flyer-download-title">Flyer Download</h1>
-    <p>You should be redirected to the Volunteering form automatically. If that doesn't happen, please use the link below.</p>
-    <p><a href="https://www.volgistics.com/appform/1521237589"">Volunteer</a>.</p>
-  </div>
-</main> -->
+{% assign apply_url = 'https://www.volgistics.com/appform/1521237589' %}
 
-<noscript>
-  <meta http-equiv="refresh" content="0; URL=https://www.volgistics.com/appform/1521237589" />
-</noscript>
+<section id="main" class="wrapper style1 sn-page vol-page">
+    <header class="major">
+        <h2>Volunteer</h2>
+    </header>
+
+    <div class="container">
+
+        <section class="sn-hero sn-hero-has-photo">
+            <div class="sn-hero-copy">
+                <p class="donate-kicker">100% volunteer-run</p>
+                <h3 class="sn-hero-title">Every cat we fix is handled by a volunteer.</h3>
+                <p class="sn-hero-lead">We spay and neuter <b>500+ cats a month</b> with no paid staff. Pick a role that fits your schedule, or tell us what you're good at.</p>
+                <div class="petco-action-buttons">
+                    <a class="petco-action-button vol-apply" href="{{ apply_url }}">Apply to volunteer</a>
+                </div>
+            </div>
+            <section class="special box home-link-card sn-hero-card">
+                <span class="home-link-card-image">
+                    <img src="{{ site.baseurl }}/images/volunteer-team.jpg" alt="Bay Area Cats volunteers posing together under a blue balloon arch" />
+                </span>
+            </section>
+        </section>
+
+        <hr class="major" />
+
+        <section id="roles">
+            <h3>Volunteer roles</h3>
+            <p>Most of our roles are at <a href="https://maps.app.goo.gl/PVgTBkW7ZN4S2bSG7" target="_blank" rel="noopener">Petco Sunnyvale</a>, 160 E El Camino Real.</p>
+            <div class="vol-cards">
+                {% for role in site.data.volunteer_roles.featured %}{% unless role.hidden %}
+                {% if role.link %}{% assign card_url = role.link | relative_url %}{% assign card_class = '' %}{% else %}{% assign card_url = apply_url %}{% assign card_class = ' vol-apply' %}{% endif %}
+                <a class="sn-card vol-card{{ card_class }}" id="{{ role.id }}" href="{{ card_url }}">
+                    {% if role.most_needed %}<span class="vol-needed-banner">Most needed</span>{% endif %}
+                    {% if role.image %}
+                    <img class="sn-card-image" src="{{ site.baseurl }}{{ role.image }}" alt="{{ role.alt }}" loading="lazy"{% if role.image_position %} style="object-position: {{ role.image_position }};"{% endif %} />
+                    {% else %}
+                    <div class="sn-card-image vol-card-placeholder" aria-hidden="true">
+                        <img src="{{ site.baseurl }}/images/sticker_round_logo.png" alt="" />
+                    </div>
+                    {% endif %}
+                    <h4>{{ role.title }}</h4>
+                    {% if role.where or role.commitment %}
+                    <p class="vol-tags">
+                        {% if role.where %}<span class="vol-tag">{{ role.where }}</span>{% endif %}
+                        {% if role.commitment %}<span class="vol-tag">{{ role.commitment }}</span>{% endif %}
+                    </p>
+                    {% endif %}
+                    <p>{{ role.summary }}</p>
+                    <p class="vol-card-link"><span>{{ role.link_text | default: 'Apply' }} →</span></p>
+                </a>
+                {% endunless %}{% endfor %}
+            </div>
+        </section>
+
+
+        <section id="apply" class="sn-support">
+            <div class="sn-support-copy">
+                <p class="donate-kicker">Ready to help?</p>
+                <h3>Apply once, pick as many roles as you want.</h3>
+                <p>The application takes a few minutes. We'll reach out about training and next steps. Questions? Email <a href="mailto:volunteer@bayareacats.org">volunteer@bayareacats.org</a>.</p>
+            </div>
+            <a class="petco-action-button vol-apply" href="{{ apply_url }}">Apply to volunteer</a>
+        </section>
+
+    </div>
+</section>
+
+<script>
+(function () {
+  document.querySelectorAll('.vol-apply').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        gtag('event', 'volunteer_application', { event_category: 'volunteer' });
+      }
+    });
+  });
+})();
+</script>

@@ -72,3 +72,24 @@ description: Adopt a cat or kitten from Bay Area Cats in Sunnyvale, CA. We're op
 <script type="text/javascript"> var sourceDomain="https://new.shelterluv.com"; var base_path=""; var GID = 100000138; var filters = []; EmbedAvailablePets("shelterluv_wrap_1763749638",GID,filters, 1,sourceDomain,base_path,2);
 </script>
 <br/>
+
+<section id="hold" class="sn-support">
+    <div class="sn-support-copy">
+        <p class="donate-kicker">Place a hold</p>
+        <h3>See a cat you really want?</h3>
+        <p>Place a hold to reserve them and get first priority to adopt. Holds last 24 hours or expire Saturday at 10 AM, whichever is sooner. The hold fee does not apply toward the adoption fee.</p>
+        <p>To place a hold, submit an application and email <a href="mailto:adopt@bayareacats.org">adopt@bayareacats.org</a>. We'll contact you with next steps.</p>
+    </div>
+    <a class="petco-action-button adopt-hold-button" href="https://new.shelterluv.com/matchme/adopt/BAH/Cat" target="_top">Apply to adopt</a>
+</section>
+<script>
+(function () {
+  document.querySelectorAll('.adopt-hold-button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        gtag('event', 'adopt_hold_click', { event_category: 'adoption', event_label: 'hold' });
+      }
+    });
+  });
+})();
+</script>

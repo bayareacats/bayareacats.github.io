@@ -1,0 +1,76 @@
+# Volunteer roles shown on /volunteer.
+# To add a role, copy a block and edit it. To hide one, add `hidden: true`.
+# image: path under /images. Leave it out to show the "photo coming soon" placeholder.
+# image_position: optional crop focus for tall photos, e.g. "center 25%" keeps the top in view.
+# most_needed: true shows a "Most needed" badge.
+# where / commitment: optional, shown as small tags under the title.
+# link / link_text: optional link at the bottom of the card (e.g. a separate application).
+
+featured:
+  - id: adoption-center
+    title: Adoption center
+    image: /images/adoption-center-volunteer.jpg
+    alt: A volunteer playing with a kitten in its kennel at the Bay Area Cats adoption center
+    image_position: center 35%
+    summary: Feed, clean, and socialize the cats in our adoption center, and help visitors meet the cat that's right for them.
+
+  - id: spay-neuter-handoff
+    title: Spay & neuter
+    most_needed: true
+    image: /images/spanish-interpretation.jpg
+    alt: Cat carriers lined up outside Petco Sunnyvale next to a Bay Area Cats spay and neuter sign
+    image_position: center 50%
+    summary: Meet caregivers at drop-off and pick-up, check cats in, and send them home with aftercare instructions.
+
+  - id: spanish-interpretation
+    title: Spanish interpretation
+    most_needed: true
+    image: /images/spanish-interpretation-phone.jpg
+    alt: A volunteer in an "Ask me about spay & neuter" sweatshirt going over details on a phone with a caregiver
+    image_position: center 40%
+    summary: Help us communicate with Spanish-speaking caregivers and pet owners about scheduling, drop-off, and aftercare.
+
+  - id: driver
+    title: Driver
+    most_needed: true
+    image: /images/driver-covered-traps.jpg
+    alt: Covered cat traps packed into the back of a volunteer's car
+    image_position: center 30%
+    summary: Move cats, traps, and supplies where they need to go, like to and from surgery appointments.
+
+  - id: cleaning
+    title: Cleaning traps and carriers
+    most_needed: true
+    image: /images/cleaning-carriers.jpg
+    alt: Freshly washed cat carriers and traps stacked up to dry in a tiled wash room
+    summary: Wash and disinfect traps and carriers so they're ready for the next cat.
+
+  - id: medical-intake
+    title: Medical and intake
+    most_needed: true
+    image: /images/intake-black-kitten.jpg
+    alt: A volunteer in a Bay Area Cats shirt holding a black kitten during intake
+    image_position: center 20%
+    summary: Check cats in, scan for microchips, record their info, and help with basic health checks.
+
+  - id: foster
+    title: Foster
+    image: /images/foster-kittens.jpg
+    alt: Three foster kittens, tortoiseshell, tuxedo, and orange, on a white blanket
+    image_position: center 58%
+    summary: Give kittens and cats a temporary home until they're adopted.
+    link: /foster
+    link_text: Apply to foster
+
+  - id: trapper
+    title: Trapper
+    most_needed: true
+    image: /images/trapping.jpg
+    alt: Community cats near two humane traps in an alley
+    image_position: center 75%
+    summary: Assist with our TNR projects in Sunnyvale, Cupertino, and select pilot areas. Be part of the full journey, from trapping to rescuing kittens!
+
+  - id: other
+    title: Other
+    alt: ""
+    summary: Social media, grant writing, tech, or another skill we could use? Tell us on the application.

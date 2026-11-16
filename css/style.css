@@ -3034,3 +3034,123 @@ html {
   margin: 0.6rem 0 0.2rem;
   color: #2b2b2b;
 }
+
+/* Volunteer page */
+.vol-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.vol-card {
+  scroll-margin-top: 6rem;
+}
+.vol-card h4 {
+  font-size: 1.3em;
+  margin-bottom: 0.5rem;
+}
+.vol-card p:last-child {
+  margin-bottom: 0;
+}
+.vol-card-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef8fc;
+}
+.vol-card-placeholder img {
+  width: 34%;
+  max-width: 120px;
+  height: auto;
+  opacity: 0.85;
+}
+.vol-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+}
+.vol-tag {
+  padding: 0.15rem 0.7rem;
+  background: #eef8fc;
+  border-radius: 999px;
+  color: #285AA8;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+@media (max-width: 1280px) {
+  .vol-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 736px) {
+  .vol-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.vol-page .home-link-card.sn-hero-card {
+  padding-bottom: 0;
+  background: none;
+}
+.vol-page .sn-hero-card .home-link-card-image {
+  margin-bottom: 0;
+}
+.vol-card .vol-card-link {
+  margin-top: -0.4rem;
+  font-weight: 700;
+}
+a.vol-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid #DCF0F9;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+a.vol-card:hover,
+a.vol-card:focus-visible {
+  border-color: #285AA8;
+  box-shadow: 0 6px 18px rgba(40, 90, 168, 0.12);
+  transform: translateY(-2px);
+}
+a.vol-card .vol-card-link {
+  color: #285AA8;
+}
+a.vol-card:hover .vol-card-link span {
+  text-decoration: underline;
+}
+.vol-card {
+  position: relative;
+}
+.vol-needed-banner {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.45rem 1rem;
+  background: #285AA8;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.vol-page .sn-hero-card .home-link-card-image img {
+  aspect-ratio: 3 / 2;
+  height: auto;
+}
+.vol-page .sn-hero-has-photo {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 590px);
+  gap: 3rem;
+}
+@media (max-width: 980px) {
+  .vol-page .sn-hero-has-photo {
+    grid-template-columns: 1fr;
+  }
+}
+#hold.sn-support {
+  margin-bottom: 3rem;
+}
