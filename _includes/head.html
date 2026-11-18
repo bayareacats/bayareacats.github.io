@@ -1,4 +1,6 @@
 <head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5Z46MWC5"></script>
     <style>
         html {visibility: hidden;opacity:0;}
     </style>
@@ -17,6 +19,30 @@
 
       gtag('config', 'G-EFGGZ0CZBZ');
     </script>
+
+    {% if page.name == 'contact.html' or page.name == 'spay-neuter.html' %}
+    <script>
+      window.addEventListener('message', function (message) {
+        if (message.origin !== 'https://tally.so') return;
+
+        const form = document.querySelector('iframe[data-tally-src^="https://tally.so/embed/GxdMqz?"]');
+        if (!form || message.source !== form.contentWindow) return;
+
+        let data = message.data;
+        if (typeof data === 'string') {
+          try {
+            data = JSON.parse(data);
+          } catch {
+            return;
+          }
+        }
+
+        if (data && data.event === 'Tally.FormSubmitted') {
+          window.dataLayer.push({ event: 'Tally.FormSubmitted' });
+        }
+      });
+    </script>
+    {% endif %}
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <link rel="shortcut icon" id="favicon" type="image/x-icon" href="/images/favicon-dark.ico">
