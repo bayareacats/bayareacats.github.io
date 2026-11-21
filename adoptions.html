@@ -93,3 +93,20 @@ description: Adopt a cat or kitten from Bay Area Cats in Sunnyvale, CA. We're op
   });
 })();
 </script>
+<script>
+(function () {
+  // Google Ads conversion: any click on an adoption application link (ShelterLuv)
+  document.querySelectorAll('a[href*="shelterluv.com/matchme"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        gtag('event', 'conversion', {
+          send_to: 'AW-18582544904/5vUECIa97bwdEIjE7JxF',
+          value: 1.0,
+          currency: 'USD',
+          transport_type: 'beacon'
+        });
+      }
+    });
+  });
+})();
+</script>
