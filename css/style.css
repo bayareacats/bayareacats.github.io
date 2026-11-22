@@ -2015,8 +2015,7 @@
 
 .donate-option-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 56rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -2453,11 +2452,6 @@ html {
   }
 }
 
-@media (min-width: 641px) and (max-width: 1080px) {
-  .donate-option-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
 
 /* Stats */
 
