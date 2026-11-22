@@ -1,0 +1,343 @@
+/* Wishlist Angel Tree */
+
+.angel-tree-page .angel-tree-intro {
+  max-width: 44rem;
+  margin: 0 auto 1.5rem auto;
+  text-align: center;
+}
+
+.angel-tree-page .angel-tree-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+  margin: 1.25rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: angel-step;
+}
+
+.angel-tree-page .angel-tree-steps li {
+  counter-increment: angel-step;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  padding-left: 0;
+}
+
+.angel-tree-page .angel-tree-steps li::before {
+  content: counter(angel-step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: #285aa8;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.angel-tree-stage {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  aspect-ratio: 600 / 780;
+  container-type: inline-size;
+}
+
+.angel-tree-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.angel-tree-art .at-light {
+  animation-name: angel-flicker;
+  animation-duration: 3s;
+  animation-timing-function: steps(1, end);
+  animation-iteration-count: infinite;
+}
+
+@keyframes angel-flicker {
+  0% { opacity: 1; }
+  8% { opacity: 0.45; }
+  11% { opacity: 1; }
+  34% { opacity: 0.85; }
+  47% { opacity: 0.25; }
+  52% { opacity: 1; }
+  55% { opacity: 0.6; }
+  58% { opacity: 1; }
+  80% { opacity: 0.9; }
+  88% { opacity: 0.35; }
+  92% { opacity: 1; }
+}
+
+.angel-ornament {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(var(--tilt, 0deg));
+  transform-origin: 50% -20%;
+  width: var(--size, 16cqw);
+  aspect-ratio: 1;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fffdf8;
+  box-shadow: 0 0.4cqw 1.2cqw rgba(0, 0, 0, 0.35), inset 0 0 0 0.25cqw rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Only animate after the page settles, so ornaments don't slide in on load. */
+.angel-tree-stage.is-ready .angel-ornament {
+  transition: transform 0.2s ease;
+}
+
+.angel-ornament:hover,
+.angel-ornament:focus-visible {
+  transform: translate(-50%, -50%) rotate(calc(var(--tilt, 0deg) * -1)) scale(1.12);
+  z-index: 5;
+  animation: angel-swing 0.9s ease-in-out;
+}
+
+.angel-ornament:focus-visible {
+  outline: 0.6cqw solid #ffe7a1;
+  outline-offset: 0.4cqw;
+}
+
+@keyframes angel-swing {
+  0% { transform: translate(-50%, -50%) rotate(var(--tilt, 0deg)) scale(1.12); }
+  35% { transform: translate(-50%, -50%) rotate(-6deg) scale(1.12); }
+  70% { transform: translate(-50%, -50%) rotate(4deg) scale(1.12); }
+  100% { transform: translate(-50%, -50%) rotate(calc(var(--tilt, 0deg) * -1)) scale(1.12); }
+}
+
+/* blue ribbon loop */
+.angel-ornament::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 88%;
+  width: 16%;
+  height: 26%;
+  transform: translateX(-50%);
+  border: 0.45cqw solid #285aa8;
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+  z-index: -1;
+}
+
+/* punched hole */
+.angel-ornament::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  width: 8%;
+  height: 8%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #2b4a33;
+  box-shadow: inset 0 0 0 0.35cqw #285aa8;
+}
+
+.angel-ornament img {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  width: 62%;
+  height: 62%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.angel-ornament .angel-ornament-name {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 6%;
+  font-family: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+  font-size: calc(var(--size, 16cqw) * 0.17);
+  font-weight: 600;
+  color: #285aa8;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.angel-ornament .angel-doodle {
+  position: absolute;
+  font-size: calc(var(--size, 16cqw) * 0.11);
+  color: #285aa8;
+  pointer-events: none;
+}
+
+.angel-ornament .angel-doodle-a { left: 7%; top: 40%; }
+.angel-ornament .angel-doodle-b { right: 7%; top: 30%; }
+
+.angel-tree-more {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.angel-tree-instore {
+  max-width: 40rem;
+  margin: 1.5rem auto 0 auto;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  background: #eef8fc;
+  text-align: center;
+}
+
+.angel-tree-instore p {
+  margin: 0;
+}
+
+/* Modal */
+.angel-dialog {
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: auto;
+}
+
+.angel-dialog::backdrop {
+  background: rgba(16, 32, 64, 0.55);
+}
+
+.angel-dialog-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.angel-dialog-photo-wrap {
+  background: #eef3fb;
+}
+
+.angel-dialog-photo {
+  display: block;
+  width: 100%;
+  min-height: 14rem;
+  max-height: 55vh;
+  object-fit: contain;
+}
+
+.angel-dialog-inner {
+  padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.angel-dialog h3 {
+  margin: 0 0 0.2rem 0;
+}
+
+.angel-dialog-meta {
+  margin: 0 0 1rem 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.angel-gift {
+  margin: 0 0 1rem 0;
+}
+
+.angel-gift-label {
+  margin: 0 0 0.5rem 0;
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  color: #285aa8;
+  line-height: 1.1;
+}
+
+.angel-gift-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 0.9rem 0;
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: #f5f8fd;
+  text-align: left;
+}
+
+.angel-gift-image {
+  flex: 0 0 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.angel-gift-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: #333;
+}
+
+.angel-gift-price {
+  margin: 0.2rem 0 0 0;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.angel-gift .petco-action-button {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.angel-gift-note {
+  margin: 0.5rem 0 0 0;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.angel-dialog-more {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.angel-dialog-adopt {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .angel-tree-art .at-light { animation: none; }
+  .angel-ornament:hover,
+  .angel-ornament:focus-visible { animation: none; }
+}

@@ -1,0 +1,298 @@
+---
+layout: default
+title: Wishlist Angel Tree | Bay Area Cats
+description: Pick a cat from the Bay Area Cats Wishlist Angel Tree and send their wish from our Chewy or Amazon wishlist. Every gift goes to the cats in our care.
+share_description: Pick a cat from our angel tree and send their wish from our wishlist.
+---
+{% assign chewy_url = 'https://www.chewy.com/g/bay-area-cats_b103747788#wish-list' %}
+{% assign amazon_url = 'https://a.co/4CxxGb9' %}
+{% assign hidescratch_url = 'https://www.giveacatabox.com/partners/bay-area-cats' %}
+<link rel="stylesheet" href="{{ site.baseurl }}/css/angel-tree.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" />
+<section id="main" class="wrapper style1 angel-tree-page">
+    <div class="container">
+        <div class="angel-tree-intro">
+            <p class="donate-kicker">Holiday giving</p>
+            <h2>Wishlist Angel Tree</h2>
+            <p>Pick a cat to see their wish, then send it from our wishlist.<br/>It ships straight to us and goes to the cats in our care.</p>
+            <ol class="angel-tree-steps">
+                <li>Pick a cat</li>
+                <li>Send their wish from our wishlist</li>
+                <li>It ships to Bay Area Cats</li>
+            </ol>
+        </div>
+
+        <div class="angel-tree-stage" id="angel-tree-stage">
+            {% include angel-tree-svg.html %}
+        </div>
+        <p class="angel-tree-more" id="angel-tree-more" hidden></p>
+
+        <noscript>
+            <p style="text-align:center">Shop our <a href="{{ chewy_url }}">Chewy wishlist</a> or <a href="{{ amazon_url }}">Amazon wishlist</a>, or <a href="/donate">make a donation</a>.</p>
+        </noscript>
+
+        <div class="angel-tree-instore">
+            <p><strong>At Petco Sunnyvale?</strong> Find our angel tree at the adoption center, shop for a cat in the store, and drop your gift off with us.</p>
+        </div>
+    </div>
+</section>
+
+<dialog class="angel-dialog" id="angel-dialog" aria-labelledby="angel-dialog-title">
+    <button type="button" class="angel-dialog-close" id="angel-dialog-close" aria-label="Close">&times;</button>
+    <div class="angel-dialog-photo-wrap">
+        <img class="angel-dialog-photo" id="angel-dialog-photo" src="" alt="" />
+    </div>
+    <div class="angel-dialog-inner">
+        <h3 id="angel-dialog-title"></h3>
+        <p class="angel-dialog-meta" id="angel-dialog-meta"></p>
+
+        <div class="angel-gift" id="angel-gift" hidden>
+            <p class="angel-gift-label" id="angel-gift-label"></p>
+            <div class="angel-gift-card">
+                <img class="angel-gift-image" id="angel-gift-image" src="" alt="" />
+                <div class="angel-gift-text">
+                    <p class="angel-gift-name" id="angel-gift-name"></p>
+                    <p class="angel-gift-price" id="angel-gift-price"></p>
+                </div>
+            </div>
+            <a class="petco-action-button angel-tree-link" id="angel-gift-button" data-dest="gift" href="#" target="_blank" rel="noopener"></a>
+        </div>
+
+        <div class="angel-dialog-more">
+            <a class="angel-tree-link" data-dest="amazon" href="{{ amazon_url }}" target="_blank" rel="noopener">Amazon</a>
+            <span aria-hidden="true">&middot;</span>
+            <a class="angel-tree-link" data-dest="chewy" href="{{ chewy_url }}" target="_blank" rel="noopener">Chewy</a>
+            <span aria-hidden="true">&middot;</span>
+            <a class="angel-tree-link" data-dest="hidescratch" href="{{ hidescratch_url }}" target="_blank" rel="noopener">Hide &amp; Scratch</a>
+            <span aria-hidden="true">&middot;</span>
+            <a class="angel-tree-link" data-dest="donate" href="/donate">Donate</a>
+        </div>
+        <p class="angel-dialog-adopt" id="angel-dialog-adopt"></p>
+    </div>
+</dialog>
+
+<script type="application/json" id="angel-tree-data">{{ site.data.angel_tree | jsonify }}</script>
+<script type="application/json" id="angel-tree-gifts">{"gifts": {{ site.data.angel_tree_gifts | jsonify }}, "chewy": {{ chewy_url | jsonify }}, "amazon": {{ amazon_url | jsonify }}, "hidescratch": {{ hidescratch_url | jsonify }}}</script>
+<script>
+(function () {
+  var stage = document.getElementById('angel-tree-stage');
+  var dataEl = document.getElementById('angel-tree-data');
+  if (!stage || !dataEl) return;
+
+  var data = {};
+  try { data = JSON.parse(dataEl.textContent) || {}; } catch (e) {}
+  var giftData = { gifts: [] };
+  try { giftData = JSON.parse(document.getElementById('angel-tree-gifts').textContent) || giftData; } catch (e) {}
+  var gifts = (giftData.gifts || []).filter(function (g) { return g && g.name; });
+  var MAX_ORNAMENTS = 10;
+  var all = (data.kittens || []).filter(function (k) { return k && k.name && k.photo; });
+  all.forEach(function (k) { k.name = String(k.name).replace(/\s*\([^)]*\)/g, '').replace(/\s+/g, ' ').trim(); });
+  // Show a different random set of kittens on each visit when there are more than fit.
+  var pool = all.slice();
+  for (var si = pool.length - 1; si > 0; si--) {
+    var sj = Math.floor(Math.random() * (si + 1));
+    var tmp = pool[si]; pool[si] = pool[sj]; pool[sj] = tmp;
+  }
+  var kittens = pool.slice(0, MAX_ORNAMENTS);
+
+  var more = document.getElementById('angel-tree-more');
+
+  // Tree geometry in SVG viewBox units (600 x 780).
+  var VB_W = 600, VB_H = 780, CX = 300;
+  var TOP = 150, BOTTOM = 585;
+  function halfWidth(y) { return Math.max(0, (y - 108) * 0.53); }
+
+  function layout(n) {
+    for (var d = 96; d >= 44; d -= 2) {
+      var rows = [];
+      var gap = d * 1.22;
+      for (var y = TOP + d / 2; y <= BOTTOM - d / 2 + 0.1; y += gap) {
+        var avail = 2 * (halfWidth(y) - d * 0.62);
+        if (avail < 0) continue;
+        rows.push({ y: y, cap: Math.floor(avail / (d * 1.12)) + 1, avail: avail });
+      }
+      var total = rows.reduce(function (s, r) { return s + r.cap; }, 0);
+      if (total >= n) return { d: d, rows: rows, total: total };
+    }
+    return null;
+  }
+
+  function distribute(plan, n) {
+    // Fill rows proportionally to capacity so the tree looks evenly decorated.
+    var rows = plan.rows, left = n, counts = rows.map(function () { return 0; });
+    if (n <= rows.length) {
+      // Few kittens: one per row, spread from the top of the tree to the bottom.
+      for (var k = 0; k < n; k++) {
+        counts[n === 1 ? Math.floor(rows.length / 2) : Math.round((k * (rows.length - 1)) / (n - 1))]++;
+      }
+      left = 0;
+    } else {
+      rows.forEach(function (r, i) { counts[i] = 1; });
+      left = n - rows.length;
+    }
+    while (left > 0) {
+      var best = -1, bestScore = -1;
+      for (var i = 0; i < rows.length; i++) {
+        if (counts[i] >= rows[i].cap) continue;
+        var score = rows[i].cap / (counts[i] + 1);
+        if (score > bestScore) { bestScore = score; best = i; }
+      }
+      if (best < 0) break;
+      counts[best]++; left--;
+    }
+    var spots = [];
+    rows.forEach(function (r, i) {
+      var c = counts[i];
+      for (var j = 0; j < c; j++) {
+        var x = c === 1 ? CX : CX - r.avail / 2 + (r.avail * j) / (c - 1);
+        var shift = (i % 2 ? 1 : -1) * plan.d * 0.12 * (c > 1 ? 1 : 0);
+        var jitterY = Math.sin((i + 1) * (j + 2) * 1.7) * plan.d * 0.06;
+        spots.push({ x: x + shift, y: r.y + jitterY });
+      }
+    });
+    return spots;
+  }
+
+  var dialog = document.getElementById('angel-dialog');
+  var lastTrigger = null;
+
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params);
+  }
+
+  function ageText(k) {
+    var m = Number(k.age_months);
+    var parts = [];
+    if (m > 0) {
+      if (m < 12) parts.push(m + (m === 1 ? ' month old' : ' months old'));
+      else { var yrs = Math.floor(m / 12); parts.push(yrs + (yrs === 1 ? ' year old' : ' years old')); }
+    }
+    if (k.sex) parts.push(String(k.sex).toLowerCase());
+    return parts.join(', ');
+  }
+
+  // Blank the old picture before loading the new one so the last cat never flashes.
+  function swapImage(img, src, alt) {
+    img.onload = function () { img.style.visibility = ''; };
+    img.style.visibility = 'hidden';
+    img.removeAttribute('src');
+    img.alt = alt || '';
+    img.src = src;
+    if (img.complete && img.naturalWidth) img.style.visibility = '';
+  }
+
+  function openFor(k, trigger) {
+    lastTrigger = trigger;
+    swapImage(document.getElementById('angel-dialog-photo'), k.photo, k.name);
+    document.getElementById('angel-dialog-title').textContent = 'Be ' + k.name + "'s angel";
+    document.getElementById('angel-dialog-meta').textContent = ageText(k);
+    var giftBox = document.getElementById('angel-gift');
+    var gift = gifts.length ? gifts[k.index % gifts.length] : null;
+    if (gift) {
+      var storeKey = String(gift.store || '').toLowerCase();
+      var store = /amazon/.test(storeKey) ? 'amazon' : /hide|scratch/.test(storeKey) ? 'hidescratch' : 'chewy';
+      var storeName = { amazon: 'Amazon', hidescratch: 'Hide & Scratch', chewy: 'Chewy' }[store];
+      document.getElementById('angel-gift-label').textContent = k.name + ' wishes for';
+      document.getElementById('angel-gift-name').textContent = gift.name;
+      var gp = document.getElementById('angel-gift-price');
+      gp.textContent = gift.price || '';
+      gp.hidden = !gift.price;
+      var gi = document.getElementById('angel-gift-image');
+      gi.hidden = !gift.image;
+      gi.onerror = function () { gi.hidden = true; };
+      if (gift.image) swapImage(gi, gift.image, gift.name);
+      var gb = document.getElementById('angel-gift-button');
+      gb.href = gift.url || giftData[store];
+      gb.textContent = 'Gift this on ' + storeName;
+      gb.dataset.gift = gift.name;
+      giftBox.hidden = false;
+    } else {
+      giftBox.hidden = true;
+    }
+    var adopt = document.getElementById('angel-dialog-adopt');
+    adopt.innerHTML = '';
+    adopt.appendChild(document.createTextNode('Want to adopt ' + k.name + '? '));
+    var a = document.createElement('a');
+    a.href = k.url || '/adoptions';
+    if (k.url) { a.target = '_blank'; a.rel = 'noopener'; }
+    a.textContent = 'Meet ' + k.name;
+    adopt.appendChild(a);
+    dialog.dataset.kitten = k.name;
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+    track('angel_tree_ornament_click', { event_category: 'angel_tree', event_label: k.name });
+  }
+
+  function closeDialog() {
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+  }
+
+  dialog.addEventListener('close', function () { if (lastTrigger) lastTrigger.focus(); });
+  document.getElementById('angel-dialog-close').addEventListener('click', closeDialog);
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) closeDialog(); });
+
+  document.querySelectorAll('.angel-tree-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      track('angel_tree_gift_click', {
+        event_category: 'angel_tree',
+        event_label: link.dataset.dest,
+        kitten: dialog.open ? dialog.dataset.kitten : '',
+        gift: link.dataset.gift || ''
+      });
+    });
+  });
+
+  if (!kittens.length) return;
+  var plan = layout(kittens.length);
+  if (!plan) return;
+  var spots = distribute(plan, kittens.length);
+  var sizePct = (plan.d / VB_W) * 100;
+  var doodles = ['♡', '✦', '★', '♡'];
+
+  kittens.forEach(function (k, i) {
+    k.index = i;
+    var s = spots[i];
+    if (!s) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'angel-ornament';
+    b.style.left = (s.x / VB_W) * 100 + '%';
+    b.style.top = (s.y / VB_H) * 100 + '%';
+    b.style.setProperty('--size', sizePct + 'cqw');
+    b.style.setProperty('--tilt', ((i * 37) % 13 - 6) + 'deg');
+    b.setAttribute('aria-label', 'Be ' + k.name + "'s angel");
+
+    var img = document.createElement('img');
+    img.src = k.photo;
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    b.appendChild(img);
+
+    var name = document.createElement('span');
+    name.className = 'angel-ornament-name';
+    name.textContent = k.name;
+    if (k.name.length > 7) name.style.fontSize = 'calc(var(--size) * ' + Math.max(0.1, 0.17 * 7 / k.name.length).toFixed(3) + ')';
+    b.appendChild(name);
+
+    var da = document.createElement('span');
+    da.className = 'angel-doodle angel-doodle-a';
+    da.textContent = doodles[i % doodles.length];
+    b.appendChild(da);
+    var db = document.createElement('span');
+    db.className = 'angel-doodle angel-doodle-b';
+    db.textContent = doodles[(i + 1) % doodles.length];
+    b.appendChild(db);
+
+    b.addEventListener('click', function () { openFor(k, b); });
+    stage.appendChild(b);
+  });
+
+  function markReady() {
+    setTimeout(function () { stage.classList.add('is-ready'); }, 300);
+  }
+  if (document.readyState === 'complete') markReady();
+  else window.addEventListener('load', markReady);
+})();
+</script>

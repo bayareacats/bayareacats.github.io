@@ -1,0 +1,36 @@
+# Wishes shown in the Wishlist Angel Tree pop-up. Cats on the tree are matched
+# to these in order (first cat gets the first wish), cycling through the list.
+# Keep items in sync with the wishlists.
+#
+#   name:  what it is
+#   image: product photo (saved in images/wishes/)
+#   store: chewy, amazon, or hide-and-scratch (which list the button opens)
+#   url:   optional link; defaults to that store's wishlist
+
+- name: Scratching post
+  image: /images/wishes/frisco-21in-sisal-post.jpg
+  store: chewy
+
+- name: Cat tunnel
+  image: /images/wishes/cat-tunnel.jpg
+  store: amazon
+
+- name: Fancy Feast kitten food
+  image: /images/wishes/fancy-feast-kitten-turkey.jpg
+  store: chewy
+
+- name: Hide & Scratch box
+  image: /images/wishes/hide-and-scratch-box.jpg
+  store: hide-and-scratch
+
+- name: Cardboard carriers
+  image: /images/wishes/cardboard-carriers.jpg
+  store: amazon
+
+- name: Feather wands
+  image: /images/wishes/feather-wand-toys.jpg
+  store: amazon
+
+- name: Beds & blankets
+  image: /images/wishes/crate-pads.jpg
+  store: amazon

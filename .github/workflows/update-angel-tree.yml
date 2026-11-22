@@ -1,0 +1,59 @@
+# Refreshes the angel tree ornaments from Shelterluv every day.
+name: Update angel tree
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily at 6am PST / 7am PDT so the tree matches who is available.
+    - cron: "0 14 * * *"
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update-angel-tree:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check API token
+        id: token
+        env:
+          SHELTERLUV_API_KEY: ${{ secrets.SHELTERLUV_API_KEY }}
+        run: |
+          if [ -z "$SHELTERLUV_API_KEY" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "SHELTERLUV_API_KEY is not configured; skipping."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.token.outputs.configured == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.token.outputs.configured == 'true'
+        with:
+          node-version: "24"
+
+      - name: Update angel tree
+        if: steps.token.outputs.configured == 'true'
+        env:
+          SHELTERLUV_API_KEY: ${{ secrets.SHELTERLUV_API_KEY }}
+        run: node scripts/update-angel-tree.mjs
+
+      - name: Commit updated ornaments
+        if: steps.token.outputs.configured == 'true'
+        run: |
+          if git diff --quiet -- _data/angel_tree.json; then
+            echo "No angel tree changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/angel_tree.json
+          git commit -m "Update angel tree"
+          git pull --rebase
+          git push

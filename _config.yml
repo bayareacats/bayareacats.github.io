@@ -13,5 +13,8 @@ givebutter_account_id: "4WWDGIiS83txUT3s"
 givebutter_widget_id: "gMYxJ0"
 givebutter_home_widget_id: "jb2beX"
 
+# Floating Wishlist Angel Tree helper on every page. Set to false after the holidays.
+angel_tree_helper: true
+
 # Build settings
 markdown: kramdown

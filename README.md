@@ -24,3 +24,17 @@ AIRTABLE_TOKEN=pat_xxx SHELTERLUV_API_KEY=key_xxx AIRTABLE_MCP_BIN=airtable-mcp 
 ```
 
 In GitHub, add `AIRTABLE_TOKEN` and `SHELTERLUV_API_KEY` repository secrets. The `Update impact stats` workflow can be run manually and is also scheduled daily.
+
+## Wishlist Angel Tree
+
+`/angel-tree` shows adoptable cats as ornaments on a drawn tree. Clicking one opens the cat's full photo and one wish from `_data/angel_tree_gifts.yml` (cats cycle through that list), with a button to that wishlist. Add or remove wishes there to match the Chewy and Amazon lists.
+
+A small floating tree in the bottom right of every page links to the angel tree. Visitors can close it (it stays closed for 3 days). Turn it off site-wide with `angel_tree_helper: false` in `_config.yml`.
+
+Ornaments come from `_data/angel_tree.json`, built from Shelterluv's publishable animals: the 8 longest residents with photos, by earliest intake date (set `ANGEL_TREE_COUNT` to change how many):
+
+```sh
+SHELTERLUV_API_KEY=key_xxx node scripts/update-angel-tree.mjs
+```
+
+The `Update angel tree` workflow refreshes the ornaments every morning and can be run manually from the Actions tab.

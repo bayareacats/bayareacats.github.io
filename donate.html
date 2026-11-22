@@ -38,6 +38,35 @@ title: Donate | Bay Area Cats
                 </section>
 
             <hr class="major" />
+            <section class="donate-angel-tree" id="angel-tree">
+                <div class="donate-angel-tree-photo">
+                    <img src="/images/angel-tree-petco.jpg" alt="Bay Area Cats Wishlist Angel Tree with kitten photo ornaments at Petco Sunnyvale" loading="lazy" />
+                </div>
+                <div class="donate-angel-tree-copy">
+                    <p class="donate-kicker">Holiday giving</p>
+                    <h3>Wishlist Angel Tree</h3>
+                    <p>This season our adoption center at Petco Sunnyvale has a little tree decorated with the cats waiting for homes. Every ornament is a real cat, and each one has a wish.</p>
+                    <ol class="donate-angel-tree-steps">
+                        <li><strong>Choose</strong> a cat from the tree, in store or online.</li>
+                        <li><strong>Shop</strong> for their wish at Petco, or send it from our Chewy or Amazon wishlist.</li>
+                        <li><strong>Donate</strong> it at our adoption center or ship directly to us.</li>
+                    </ol>
+                    <a class="petco-action-button donate-angel-tree-button" href="/angel-tree">Give a rescue cat a gift</a>
+                </div>
+            </section>
+            <script>
+            (function () {
+              var btn = document.querySelector('.donate-angel-tree-button');
+              if (!btn) return;
+              btn.addEventListener('click', function () {
+                if (typeof window.gtag === 'function') {
+                  gtag('event', 'angel_tree_donate_page_click', { event_category: 'angel_tree', event_label: 'donate_page' });
+                }
+              });
+            })();
+            </script>
+
+            <hr class="major" />
             <section class="donate-impact donate-proof">
                 <div class="donate-impact-copy">
                     <p class="donate-kicker">Our impact</p>
