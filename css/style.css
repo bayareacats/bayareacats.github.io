@@ -2015,14 +2015,14 @@
 
 .donate-option-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 56rem;
   gap: 1.5rem;
 }
 
 .donate-option-card {
   display: flex;
   flex-direction: column;
-  min-height: 20.5rem;
   padding: 2rem 1.95rem;
   background: #f3f8fc;
   border: 0;
