@@ -1607,6 +1607,18 @@
   text-decoration: none;
 }
 
+.donate-button.donate-button-alt,
+.donate-button.donate-button-alt:visited {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px #285aa8;
+  color: #285aa8;
+}
+
+.donate-button.donate-button-alt:hover {
+  background-color: rgba(40, 90, 168, 0.08);
+  color: #285aa8;
+}
+
 .givebutter-button-wrap {
   margin: 1.1rem 0 1.4rem;
 }
@@ -3279,5 +3291,39 @@ a.vol-card:hover .vol-card-link span {
   .donate-angel-tree .petco-action-button {
     display: block;
     min-width: 0;
+  }
+}
+
+.getting-started-layout {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.getting-started-image {
+  flex: 0 0 32%;
+  max-width: 32%;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+}
+
+.getting-started-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media screen and (max-width: 736px) {
+  .getting-started-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .getting-started-image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
   }
 }
