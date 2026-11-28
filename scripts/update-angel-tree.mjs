@@ -57,6 +57,13 @@ function pickPhoto(animal) {
   );
 }
 
+// Cats still in Pre-Intake aren't ready for the tree. Shelterluv can show this
+// in the status or in the location, so check both.
+function isPreIntake(animal) {
+  const fields = [animal.Status, animal.CurrentLocation && JSON.stringify(animal.CurrentLocation)];
+  return fields.some((value) => /pre[\s-]?intake/i.test(String(value || "")));
+}
+
 function intakeTime(animal) {
   const t = Number(animal.LastIntakeUnixTime);
   return Number.isFinite(t) && t > 0 ? t : null;
@@ -77,8 +84,13 @@ function toOrnament(animal) {
 
 async function main() {
   const animals = await listAdoptableAnimals();
-  const cats = animals
-    .filter((animal) => !animal.Type || /cat/i.test(animal.Type))
+  const allCats = animals.filter((animal) => !animal.Type || /cat/i.test(animal.Type));
+  const preIntake = allCats.filter(isPreIntake);
+  if (preIntake.length) {
+    console.log(`Skipping ${preIntake.length} Pre-Intake cats: ${preIntake.map((a) => a.Name).join(", ")}`);
+  }
+  const cats = allCats
+    .filter((animal) => !isPreIntake(animal))
     .map(toOrnament)
     .filter((cat) => cat.name && cat.photo);
 
